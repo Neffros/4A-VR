@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.XR;
 public class AnimateController : MonoBehaviour
 {
+    public bool showSword;
     public bool showController;
     public InputDeviceCharacteristics controllerChars;
     public GameObject controllerPrefab;
     public GameObject handPrefab;
+    public GameObject swordPrefab;
     private InputDevice _controller;
     private Animator _handAnimator;
     
     private GameObject spawnedController;
     private GameObject spawnedHand;
+    private GameObject spawnedSword;
 
     private static readonly int Trigger = Animator.StringToHash("Trigger");
     private static readonly int Grip = Animator.StringToHash("Grip");
@@ -39,9 +42,16 @@ public class AnimateController : MonoBehaviour
             _controller = devices[0];
             if (controllerPrefab)
             {
-                spawnedController = Instantiate(controllerPrefab, transform);
-                spawnedHand = Instantiate(handPrefab, transform);
-                _handAnimator = spawnedHand.GetComponent<Animator>();
+                if (showSword)
+                {
+                    spawnedSword = Instantiate(swordPrefab, transform);
+                }
+                else
+                {
+                    spawnedController = Instantiate(controllerPrefab, transform);
+                    spawnedHand = Instantiate(handPrefab, transform);
+                    _handAnimator = spawnedHand.GetComponent<Animator>();
+                }
             }
         }
     }
@@ -87,8 +97,13 @@ public class AnimateController : MonoBehaviour
             TryInitialize();
             return;
         }
-        UpdateHandAnimator();  
-        UpdateActiveController();
+
+        if (!showSword)
+        {
+            UpdateHandAnimator();  
+            UpdateActiveController();
+        }
+        
         /*_controller.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
         if (primaryButtonValue)
             Debug.Log("pressing main button in right controller");
