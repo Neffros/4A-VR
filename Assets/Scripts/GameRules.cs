@@ -10,13 +10,34 @@ public class GameRules : MonoBehaviour
     private  bool _playerLost;
     private bool _finished;
     private GameManager _gameManager;
+
+    public delegate void Response();
+    public static event Response OnNextLevel;
+    public static event Response OnLevelLost;
+    public static event Response OnLevelWon;
+
+    private bool enteredZone;
+
     private void Start()
     {
         _gameManager = GameManager.Instance;
         _gameManager.GameRules = this;
-        
+
+        HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
+        HitboxDetection.OnPathExitedEvent += OnPathExited;
     }
-    
+
+    private void OnPathExited()
+    {
+        enteredZone = false;
+        Debug.LogWarning("RIEN D'IMPLEMENTÉ QUAND LE JOUEUR SORT DU CHEMIN !!");
+    }
+
+    private void OnStartZoneEntered()
+    {
+        enteredZone = true;
+    }
+
     private void Endgame()
     {
         _gameManager.EndGameUiManager.UpdateScore();
@@ -46,6 +67,7 @@ public class GameRules : MonoBehaviour
 
     public void NextLevel()
     {
+        OnNextLevel();
         //delete current level
         
         //generateLevel or get level 
@@ -53,13 +75,25 @@ public class GameRules : MonoBehaviour
 
     public void WinLevel()
     {
+        if (!enteredZone)
+        {
+            Debug.Log("Le joueur n'est pas passé par l'entrée !");
+            return;
+        }
         _gameManager.GameData.Score++;
         _gameManager.GameData.Timer = 20.0f;
+        OnLevelWon();
         NextLevel();
     }
     public void LoseLevel()
     {
+        if (!enteredZone)
+        {
+            Debug.Log("Le joueur n'est pas passé par l'entrée !");
+            return;
+        }
         _gameManager.GameData.Health--;
+        OnLevelLost();
         NextLevel();
     }
     public bool PlayerLost
