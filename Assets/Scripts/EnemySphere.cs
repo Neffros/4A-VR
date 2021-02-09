@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class EnemySphere : MonoBehaviour
 {
+    private int swordLayer;
+    private void Awake()
+    {
+        swordLayer = LayerMask.NameToLayer("Sword");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Sword"))
+        if (other.gameObject.layer == swordLayer)
         {
             GameManager.Instance.GameRules.WinLevel();
         }
