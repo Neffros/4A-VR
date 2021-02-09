@@ -15,9 +15,9 @@ TagManager:
   - 
   - 
   - Grabbable
-  - 
-  - 
-  - 
+  - Hitbox
+  - Obstacle
+  - EnemySphere
   - 
   - 
   - 
