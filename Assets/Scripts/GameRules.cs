@@ -68,30 +68,21 @@ public class GameRules : MonoBehaviour
 
     public void NextLevel()
     {
-
-        if (OnNextLevel != null)
-        {
-            OnNextLevel();
-            
-        }
-        //delete current level
+        _gameManager.LevelManager.NextPattern();
+        OnNextLevel?.Invoke();
         
-        //generateLevel or get level 
     }
 
     public void WinLevel()
     {
         if (!enteredZone)
         {
-            Debug.Log("Le joueur n'est pas passé par l'entrée ! (WIN)");
+            Debug.Log("WIN");
             return;
         }
         _gameManager.GameData.Score++;
         _gameManager.GameData.Timer = 20.0f;
-        if (OnLevelWon != null)
-        {
-            OnLevelWon();
-        }
+        OnLevelWon?.Invoke();
         NextLevel();
     }
     public void LoseLevel()
@@ -102,10 +93,9 @@ public class GameRules : MonoBehaviour
             return;
         }
         _gameManager.GameData.Health--;
-        if (OnLevelLost != null)
-        {
-            OnLevelLost();
-        }
+        OnLevelLost?.Invoke();
+
+        Debug.Log("LOST");
         NextLevel();
     }
     public bool PlayerLost

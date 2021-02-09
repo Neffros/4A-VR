@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance => _instance;
 
+    public LevelManager LevelManager { get; internal set; }
+
     [HideInInspector] public SceneManager SceneManager;
     public UIManager UiManager;
     public GameData GameData;
