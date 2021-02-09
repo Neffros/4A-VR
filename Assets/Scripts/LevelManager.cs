@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
 
     private GameManager _gameManager;
 
+    private int currentPatternIndex;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -33,6 +35,8 @@ public class LevelManager : MonoBehaviour
         }
 
         _gameManager.LevelManager = this;
+
+        currentPatternIndex = 0;
     }
 
     public void NextPattern()
@@ -42,6 +46,9 @@ public class LevelManager : MonoBehaviour
             Destroy(currentPattern.gameObject);
         }
 
-        currentPattern = Instantiate(patternPrefabs[Random.Range(0, patternPrefabs.Count)]);
+        currentPatternIndex++;
+        currentPatternIndex %= patternPrefabs.Count;
+
+        currentPattern = Instantiate(patternPrefabs[currentPatternIndex]);
     }
 }
