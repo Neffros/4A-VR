@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class HitboxDetection : MonoBehaviour
 {
-    [SerializeField] private GameObject obstaclesParent;
-    [SerializeField] private HitboxPath hitboxPath;
-    [SerializeField] private HitboxStart hitboxStart;
-    [SerializeField] private EnemySphere enemySphere;
+
 
     public delegate void Response();
     public static event Response OnPathExitedEvent;
@@ -17,40 +14,14 @@ public class HitboxDetection : MonoBehaviour
 
     private bool enteredStartZone;
 
-    private List<Collider> colliders;
 
     private void Awake()
     {
-        CreateCollidersList();
 
-        GameRules.OnLevelWon += DisableCollisions;
-        GameRules.OnLevelLost += DisableCollisions;
+        GameRules.OnLevelWon +=GameManager.Instance.DisableSword;
+        GameRules.OnLevelLost += GameManager.Instance.DisableSword;
 
-        GameRules.OnNextLevel += EnableCollisions;
-    }
-
-    private void CreateCollidersList()
-    {
-        colliders = obstaclesParent.GetComponentsInChildren<Collider>().ToList();
-        colliders.Add(hitboxPath.gameObject.GetComponent<Collider>());
-        colliders.Add(hitboxStart.gameObject.GetComponent<Collider>());
-        colliders.Add(enemySphere.gameObject.GetComponent<Collider>());
-    }
-
-    public void EnableCollisions()
-    {
-        foreach (var col in colliders)
-        {
-            col.enabled = true;
-        }
-    }
-
-    public void DisableCollisions()
-    {
-        foreach (var col in colliders)
-        {
-            col.enabled = false;
-        }
+        GameRules.OnNextLevel += GameManager.Instance.EnableSword;
     }
 
     internal void OnEnteredStartZone()
