@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3); //TODO change to definitive
     }
 
     public void DisplaySettings()

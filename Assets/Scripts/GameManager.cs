@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
+
+
     public static GameManager Instance => _instance;
 
     [HideInInspector] public SceneManager SceneManager;
     public UIManager UiManager;
     public GameData GameData;
+    public EndGameUIManager EndGameUiManager;
+    public GameRules GameRules;
 
     private void Awake()
     {
@@ -29,4 +33,6 @@ public class GameManager : MonoBehaviour
         SceneManager = new SceneManager();
         SceneManager.LoadScene(3);
     }
+
+
 }
