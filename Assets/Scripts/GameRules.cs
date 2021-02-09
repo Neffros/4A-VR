@@ -40,7 +40,7 @@ public class GameRules : MonoBehaviour
 
     private void Endgame()
     {
-        _gameManager.EndGameUiManager.UpdateScore();
+       // _gameManager.EndGameUiManager.UpdateScore();
         _playerLost = false;
         //do stuff
     }
