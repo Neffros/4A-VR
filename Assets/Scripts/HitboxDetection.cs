@@ -75,6 +75,6 @@ public class HitboxDetection : MonoBehaviour
 
     internal void OnExitedStartZone()
     {
-
+        Debug.Log("Start zone exited");
     }
 }

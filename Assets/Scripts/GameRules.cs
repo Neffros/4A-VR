@@ -35,6 +35,7 @@ public class GameRules : MonoBehaviour
 
     private void OnStartZoneEntered()
     {
+        Debug.Log("StartZone entered");
         enteredZone = true;
     }
 
@@ -77,7 +78,7 @@ public class GameRules : MonoBehaviour
     {
         if (!enteredZone)
         {
-            Debug.Log("Le joueur n'est pas passé par l'entrée !");
+            Debug.Log("Le joueur n'est pas passé par l'entrée ! (WIN)");
             return;
         }
         _gameManager.GameData.Score++;
@@ -89,7 +90,7 @@ public class GameRules : MonoBehaviour
     {
         if (!enteredZone)
         {
-            Debug.Log("Le joueur n'est pas passé par l'entrée !");
+            Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
             return;
         }
         _gameManager.GameData.Health--;
