@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 7037914588182082260}
   - component: {fileID: 8851938496877863382}
   m_Layer: 5
-  m_Name: UI
+  m_Name: gameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -919,6 +919,7 @@ MonoBehaviour:
   scoreTxt: {fileID: 2314807746653057793}
   highScoreTxt: {fileID: 5716961778901644794}
   timerTxt: {fileID: 8042087085606408141}
+  hpTxt: {fileID: 6297871432184129763}
 --- !u!1 &7037914590059931274
 GameObject:
   m_ObjectHideFlags: 0
