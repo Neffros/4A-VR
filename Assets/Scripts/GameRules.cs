@@ -68,7 +68,12 @@ public class GameRules : MonoBehaviour
 
     public void NextLevel()
     {
-        OnNextLevel();
+
+        if (OnNextLevel != null)
+        {
+            OnNextLevel();
+            
+        }
         //delete current level
         
         //generateLevel or get level 
@@ -83,7 +88,10 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Score++;
         _gameManager.GameData.Timer = 20.0f;
-        OnLevelWon();
+        if (OnLevelWon != null)
+        {
+            OnLevelWon();
+        }
         NextLevel();
     }
     public void LoseLevel()
@@ -94,7 +102,10 @@ public class GameRules : MonoBehaviour
             return;
         }
         _gameManager.GameData.Health--;
-        OnLevelLost();
+        if (OnLevelLost != null)
+        {
+            OnLevelLost();
+        }
         NextLevel();
     }
     public bool PlayerLost

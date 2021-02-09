@@ -17,7 +17,7 @@ public class HitboxDetection : MonoBehaviour
 
     private void Awake()
     {
-
+        return;
         GameRules.OnLevelWon +=GameManager.Instance.DisableSword;
         GameRules.OnLevelLost += GameManager.Instance.DisableSword;
 
