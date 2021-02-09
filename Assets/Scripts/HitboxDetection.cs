@@ -1,18 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HitboxDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public delegate void OnPathExited();
+    public static event OnPathExited OnPathExitedEvent;
+
+    private bool enteredStartZone;
+    internal void OnEnteredStartZone()
     {
-        
+        enteredStartZone = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    internal void OnExitedPath()
     {
-        
+        if (enteredStartZone)
+        {
+            OnPathExitedEvent();
+            enteredStartZone = false;
+        }
+    }
+
+    internal void OnEnteredPath()
+    {
+    }
+
+    internal void OnExitedStartZone()
+    {
+
     }
 }
