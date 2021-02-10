@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySphere : MonoBehaviour
 {
+    [SerializeField] private Bullet bulletPrefab;
     private int swordLayer;
     private void Awake()
     {
@@ -16,5 +17,12 @@ public class EnemySphere : MonoBehaviour
         {
             GameManager.Instance.GameRules.WinLevel();
         }
+    }
+
+    public void ShootPlayer(Vector3 target)
+    {
+        Bullet clone = Instantiate(bulletPrefab);
+        clone.transform.position = transform.position;
+        clone.Shoot((target - transform.position).normalized);
     }
 }

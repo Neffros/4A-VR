@@ -19,8 +19,8 @@ TagManager:
   - Obstacle
   - EnemySphere
   - Sword
-  - 
-  - 
+  - Player
+  - Projectile
   - 
   - 
   - 

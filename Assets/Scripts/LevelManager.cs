@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour
 
     private int currentPatternIndex;
 
+    public EnemySphere enemySphere => currentPattern != null ? currentPattern.enemySphere : null;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

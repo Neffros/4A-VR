@@ -22,6 +22,8 @@ public class GameRules : MonoBehaviour
 
     private bool enteredZone;
 
+    private Player player;
+
     private void Start()
     {
         _gameManager = GameManager.Instance;
@@ -29,12 +31,14 @@ public class GameRules : MonoBehaviour
 
         HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
         HitboxDetection.OnPathExitedEvent += OnPathExited;
+
+        player = FindObjectOfType<Player>();
     }
 
     private void OnPathExited()
     {
         enteredZone = false;
-        Debug.LogWarning("RIEN D'IMPLEMENTÉ QUAND LE JOUEUR SORT DU CHEMIN !!");
+        _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
 
     private void OnStartZoneEntered()
@@ -79,13 +83,18 @@ public class GameRules : MonoBehaviour
         }
     }
 
+    public void HitByBullet()
+    {
+        enteredZone = true;
+        LoseLevel();
+    }
+
     public void NextLevel()
     {
         enteredZone = false;
         _gameManager.GameData.Timer = 20.0f;
         _gameManager.LevelManager.NextPattern();
         OnNextLevel?.Invoke();
-        
     }
 
     public void WinLevel()
