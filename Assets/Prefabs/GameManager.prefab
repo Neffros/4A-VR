@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8554754538943130067}
   - component: {fileID: 1628177507101569728}
   - component: {fileID: 651103932951809309}
+  - component: {fileID: 1618225254305403420}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,6 +50,8 @@ MonoBehaviour:
   GameData: {fileID: 0}
   EndGameUiManager: {fileID: 0}
   GameRules: {fileID: 0}
+  SoundManager: {fileID: 0}
+  sword: {fileID: 0}
 --- !u!114 &1628177507101569728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,3 +76,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 712ab85b2051ad146ae184fa584fcd4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1618225254305403420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420396551993534784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144772a5a993a08448f9f270fba272a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: selectOption
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: music
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: spawn
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: success
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hitObstacle
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: shoot
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: gameover
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hitObstacle
+    clip: {fileID: 8300000, guid: 9edc5c25200d47f408726a5c656c9630, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: hitObstacle
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

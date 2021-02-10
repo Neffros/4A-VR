@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     
-    
     public static GameManager Instance => _instance;
 
     public LevelManager LevelManager { get; internal set; }
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameData GameData;
     public EndGameUIManager EndGameUiManager;
     public GameRules GameRules;
+    public SoundManager SoundManager;
 
     public Collider sword;
     private void Awake()

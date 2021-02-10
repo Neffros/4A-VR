@@ -22,6 +22,8 @@
           <e p="Obstacle.cs" t="Include" />
           <e p="osef.cs" t="Include" />
           <e p="Pattern.cs" t="Include" />
+          <e p="Sound.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
           <e p="sword.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
         </e>
