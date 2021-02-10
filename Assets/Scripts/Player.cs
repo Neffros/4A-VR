@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Selection.activeObject = playerCollider.gameObject;
+        
     }
 
     public Transform ShootTarget { get => shootTarget; private set => shootTarget = value; }
