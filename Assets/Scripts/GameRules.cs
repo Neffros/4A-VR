@@ -45,6 +45,12 @@ public class GameRules : MonoBehaviour
     {
         Player player = FindObjectOfType<Player>();
         Debug.Log("game manager call" + _gameManager.LevelManager.name);
+        Debug.Log("player call " + player.ShootTarget.name);
+        if (_gameManager.LevelManager.enemySphere == null)
+        {
+            Debug.Log("null sphere");
+        }
+        Debug.Log("enemy call " + _gameManager.LevelManager.enemySphere.name);
         _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
 

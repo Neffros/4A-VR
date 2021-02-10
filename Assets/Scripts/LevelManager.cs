@@ -82,6 +82,11 @@ public class LevelManager : MonoBehaviour
         Transform targetTransform = _gameManager.GameData.Seated ? platformes[_currentPlatformIndex].seatedSpawnPoint : platformes[_currentPlatformIndex].standingSpawnPoint;
         targetTransform.rotation = rotation;
 
+        Pattern pattern = patternPrefabs[currentPatternIndex];
+        Transform currentPatternTrans = pattern.transform;
+        float scaleInc = 1 - platformes[_currentPlatformIndex].Scale;
+        currentPatternTrans.localScale= new Vector3(currentPatternTrans.localScale.x + scaleInc, currentPatternTrans.localScale.y + scaleInc, currentPatternTrans.localScale.z + scaleInc);
+
         
         if(_gameManager.GameData.Seated)
             currentPattern = Instantiate(patternPrefabs[currentPatternIndex], targetTransform.transform);

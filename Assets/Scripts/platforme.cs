@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,15 @@ public class platforme : MonoBehaviour
     public Transform standingSpawnPoint;
     public AudioSource spawnAudio;
 
+    private float _scale; 
     public Transform SeatedSpawnPoint => seatedSpawnPoint;
 
     public Transform StandingSpawnPoint => standingSpawnPoint;
 
+    private void Start()
+    {
+        _scale = gameObject.transform.localScale.x;
+    }
 
     public void PlaySource()
     {
@@ -22,4 +28,6 @@ public class platforme : MonoBehaviour
     {
         spawnAudio.Stop();
     }
+
+    public float Scale => _scale;
 }
