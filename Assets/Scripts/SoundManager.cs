@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviour
     {
         GameManager.Instance.SoundManager = this;
         Init();
+        Play("music");
+
     }
 
     //take game setting volume with gamesingleton.instance.gamesettings.volume 
@@ -35,7 +37,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("try playing source:" + s.source.name);
+        Debug.Log("try playing source:" + soundName);
         if (s.loop) //is a music
             s.source.volume = s.volume;
         else

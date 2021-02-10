@@ -31,6 +31,8 @@ public class EndGameUIManager : MonoBehaviour
 
    public void PlayAgain()
    {
+       
+       _gameManager.SoundManager.Play("selectOption");
        _gameManager.ResetData();
        endGamePanel.SetActive(false);
        SceneManager.LoadScene(3);
@@ -38,6 +40,7 @@ public class EndGameUIManager : MonoBehaviour
    
    public void ReturnToMainMenu()
    {
+       _gameManager.SoundManager.Play("selectOption");
        _gameManager.ResetData();
        endGamePanel.SetActive(false);
        SceneManager.LoadScene(1);

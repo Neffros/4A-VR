@@ -15,23 +15,29 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.Instance.SoundManager.Play("selectOption");
         SceneManager.LoadScene(3); //TODO change to definitive
     }
 
     public void DisplaySettings()
     {
+        GameManager.Instance.SoundManager.Play("selectOption");
         settingsPanel.gameObject.SetActive(true);
         mainMenuPanel.gameObject.SetActive(false);
     }
 
     public void QuitGame()
     {
+        GameManager.Instance.SoundManager.Play("selectOption");
         Application.Quit();
     }
 
     public void ExitSettings()
     {
+        
         GameManager gameManager = GameManager.Instance;
+        gameManager.SoundManager.Play("selectOption");
+
         if (mainHand.value == 0)
             gameManager.GameData.LeftHand = false;
         else
