@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Resources;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameRules : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class GameRules : MonoBehaviour
     private  bool _playerLost;
     private bool _finished;
     private GameManager _gameManager;
-
+    
+    private XRInteractorLineVisual _playerRayVisual;
+    private LineRenderer _playerRay;
+    
     public delegate void Response();
     public static event Response OnNextLevel;
     public static event Response OnLevelLost;
@@ -25,8 +29,6 @@ public class GameRules : MonoBehaviour
 
         HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
         HitboxDetection.OnPathExitedEvent += OnPathExited;
-        
-        NextLevel();
     }
 
     private void OnPathExited()
@@ -45,6 +47,11 @@ public class GameRules : MonoBehaviour
     {
         _playerLost = false;
         _finished = true;
+        _playerRay = FindObjectOfType<LineRenderer>();
+        _playerRay.enabled = true;
+
+        _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
+        _playerRayVisual.enabled = true;
        _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
        _gameManager.EndGameUiManager.UpdateScore();
        _gameManager.LevelManager.DestroyLevel();
@@ -107,6 +114,13 @@ public class GameRules : MonoBehaviour
         Debug.Log("LOST");
         NextLevel();
     }
+
+    public void Reset()
+    {
+        _playerLost = false;
+        _finished = false;
+    }
+
     public bool PlayerLost
     {
         get => _playerLost;

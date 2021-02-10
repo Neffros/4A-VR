@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showSword: 1
   showController: 0
+  isLeftHand: 1
   controllerChars: 320
   controllerPrefab: {fileID: 4187178135158915703, guid: 6208b22e0e64c9f469bd43c5de6d8433,
     type: 3}

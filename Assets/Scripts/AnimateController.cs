@@ -6,6 +6,7 @@ public class AnimateController : MonoBehaviour
 {
     public bool showSword;
     public bool showController;
+    public bool isLeftHand;
     public InputDeviceCharacteristics controllerChars;
     public GameObject controllerPrefab;
     public GameObject handPrefab;
@@ -17,6 +18,7 @@ public class AnimateController : MonoBehaviour
     private GameObject spawnedHand;
     private GameObject spawnedSword;
 
+    private bool animate;
     private static readonly int Trigger = Animator.StringToHash("Trigger");
     private static readonly int Grip = Animator.StringToHash("Grip");
 
@@ -40,18 +42,21 @@ public class AnimateController : MonoBehaviour
         if (devices.Count > 0)
         {
             _controller = devices[0];
-            if (controllerPrefab)
+
+            if (GameManager.Instance.GameData.LeftHand && isLeftHand)
             {
-                if (showSword)
-                {
-                    spawnedSword = Instantiate(swordPrefab, transform);
-                }
-                else
-                {
-                    spawnedController = Instantiate(controllerPrefab, transform);
-                    spawnedHand = Instantiate(handPrefab, transform);
-                    _handAnimator = spawnedHand.GetComponent<Animator>();
-                }
+                spawnedSword = Instantiate(swordPrefab, transform);
+            }
+            else if (!GameManager.Instance.GameData.LeftHand && !isLeftHand)
+            {
+                spawnedSword = Instantiate(swordPrefab, transform);
+            }
+            else 
+            {
+                spawnedController = Instantiate(controllerPrefab, transform);
+                spawnedHand = Instantiate(handPrefab, transform);
+                _handAnimator = spawnedHand.GetComponent<Animator>();
+                animate = true;
             }
         }
     }
@@ -60,7 +65,7 @@ public class AnimateController : MonoBehaviour
     {
         if (_controller.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
-            _handAnimator.SetFloat(Trigger, triggerValue);
+           _handAnimator.SetFloat(Trigger, triggerValue);
         }
         else
         {
@@ -98,7 +103,7 @@ public class AnimateController : MonoBehaviour
             return;
         }
 
-        if (!showSword)
+        if (animate)
         {
             UpdateHandAnimator();  
             UpdateActiveController();

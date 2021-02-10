@@ -31,12 +31,14 @@ public class EndGameUIManager : MonoBehaviour
 
    public void PlayAgain()
    {
+       _gameManager.ResetData();
        endGamePanel.SetActive(false);
        SceneManager.LoadScene(3);
    }
    
    public void ReturnToMainMenu()
    {
+       _gameManager.ResetData();
        endGamePanel.SetActive(false);
        SceneManager.LoadScene(1);
    }

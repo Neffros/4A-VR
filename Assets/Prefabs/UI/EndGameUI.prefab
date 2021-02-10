@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 6265873220419184075}
   - component: {fileID: 1589890275362997387}
   - component: {fileID: 4211124852742644453}
+  - component: {fileID: 2389738029512095886}
   m_Layer: 5
   m_Name: EndGameUI
   m_TagString: Untagged
@@ -714,7 +715,7 @@ Canvas:
   m_GameObject: {fileID: 6622036521249675306}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -780,6 +781,24 @@ MonoBehaviour:
   endGamePanel: {fileID: 8074820343418530503}
   scoreTxt: {fileID: 414207680511018277}
   hiScoreTxt: {fileID: 2512029762999148841}
+--- !u!114 &2389738029512095886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6622036521249675306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 0
+  m_CheckFor2DOcclusion: 0
+  m_CheckFor3DOcclusion: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 288
 --- !u!1 &7581976710915857727
 GameObject:
   m_ObjectHideFlags: 0

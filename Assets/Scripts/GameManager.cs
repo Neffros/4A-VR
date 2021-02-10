@@ -33,9 +33,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager = new SceneManager();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 
+
+    public void ResetData()
+    {
+        GameData.Reset();
+        GameRules.Reset();
+
+    }
     public void EnableSword()
     {
         sword.enabled = true;
