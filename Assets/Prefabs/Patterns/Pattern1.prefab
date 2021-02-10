@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d08d0046d8044ca6cad2c20be88d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxDetection: {fileID: 0}
+  hitboxDetection: {fileID: 14854070501287285}
 --- !u!1 &2614012579173327712
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fec525c96ac55e40a9e8aeb283a7136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitboxDetection: {fileID: 0}
+  hitboxDetection: {fileID: 14854070501287285}
 --- !u!1001 &73592248526487453
 PrefabInstance:
   m_ObjectHideFlags: 0
