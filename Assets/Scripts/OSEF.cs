@@ -8,7 +8,6 @@ public class OSEF : MonoBehaviour
     {
         HitboxDetection.OnPathExitedEvent += () =>
         {
-            Debug.Log("BAD PLAYER :P");
         };
     }
 }

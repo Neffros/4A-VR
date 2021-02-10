@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pattern : MonoBehaviour
 {
+    public EnemySphere enemySphere;
     // Start is called before the first frame update
     void Start()
     {
