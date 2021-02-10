@@ -25,8 +25,6 @@ public class GameRules : MonoBehaviour
 
         HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
         HitboxDetection.OnPathExitedEvent += OnPathExited;
-        
-        NextLevel();
     }
 
     private void OnPathExited()

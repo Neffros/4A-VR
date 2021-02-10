@@ -38,8 +38,10 @@ public class LevelManager : MonoBehaviour
         _gameManager.LevelManager = this;
 
         currentPatternIndex = -1;
+        _gameManager.GameRules.NextLevel();
     }
 
+    
     public void DestroyLevel()
     {
         if(currentPattern != null)

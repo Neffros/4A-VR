@@ -43,9 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showSword: 1
   showController: 0
+  isLeftHand: 0
   controllerChars: 576
   controllerPrefab: {fileID: 919132149155446097, guid: 4adcf321d7c9916449b9f1dde96766cd,
     type: 3}
   handPrefab: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+    type: 3}
+  swordPrefab: {fileID: 4187178135158915703, guid: 6208b22e0e64c9f469bd43c5de6d8433,
     type: 3}

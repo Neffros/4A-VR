@@ -42,22 +42,21 @@ public class AnimateController : MonoBehaviour
         if (devices.Count > 0)
         {
             _controller = devices[0];
-            if (controllerPrefab)
+
+            if (GameManager.Instance.GameData.LeftHand && isLeftHand)
             {
-                if (GameManager.Instance.GameData.LeftHand && isLeftHand)
-                {
-                    spawnedSword = Instantiate(swordPrefab, transform);
-                }
-                else if (!GameManager.Instance.GameData.LeftHand && !isLeftHand)
-                {
-                    spawnedSword = Instantiate(swordPrefab, transform);
-                }
-                else 
-                {
-                    spawnedController = Instantiate(controllerPrefab, transform);
-                    spawnedHand = Instantiate(handPrefab, transform);
-                    animate = true;
-                }
+                spawnedSword = Instantiate(swordPrefab, transform);
+            }
+            else if (!GameManager.Instance.GameData.LeftHand && !isLeftHand)
+            {
+                spawnedSword = Instantiate(swordPrefab, transform);
+            }
+            else 
+            {
+                spawnedController = Instantiate(controllerPrefab, transform);
+                spawnedHand = Instantiate(handPrefab, transform);
+                _handAnimator = spawnedHand.GetComponent<Animator>();
+                animate = true;
             }
         }
     }
@@ -66,7 +65,7 @@ public class AnimateController : MonoBehaviour
     {
         if (_controller.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
         {
-            _handAnimator.SetFloat(Trigger, triggerValue);
+           _handAnimator.SetFloat(Trigger, triggerValue);
         }
         else
         {

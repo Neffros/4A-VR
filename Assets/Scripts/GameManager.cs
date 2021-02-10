@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager = new SceneManager();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 
     public void EnableSword()
