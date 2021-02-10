@@ -28,6 +28,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
+        GameManager.Instance.GameData.Save();
         GameManager.Instance.SoundManager.Play("selectOption");
         Application.Quit();
     }

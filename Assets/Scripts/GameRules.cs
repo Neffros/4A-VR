@@ -62,7 +62,10 @@ public class GameRules : MonoBehaviour
         _gameManager.SoundManager.Play("gameover");
         _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
         _playerRayVisual.enabled = true;
-       _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
+
+        if (_gameManager.GameData.Score >= _gameManager.GameData.HighScore)
+            _gameManager.GameData.HighScore = _gameManager.GameData.Score;
+        _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
        _gameManager.EndGameUiManager.UpdateScore();
        _gameManager.LevelManager.DestroyLevel();
        //do stuff
