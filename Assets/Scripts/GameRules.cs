@@ -129,7 +129,7 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        //_gameManager.SoundManager.Play("hitObstacle");
+        _gameManager.SoundManager.Play("hitObstacle");
         Debug.Log("LOST");
         NextLevel();
     }
