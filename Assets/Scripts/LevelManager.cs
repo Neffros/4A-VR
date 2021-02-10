@@ -8,7 +8,8 @@ public class LevelManager : MonoBehaviour
 
     private static LevelManager _instance;
 
-    public Transform spawnPoint;
+    public Transform seatedSpawnPoint;
+    public Transform standingSpawnPoint;
     public static LevelManager Instance => _instance;
 
     private Pattern currentPattern;
@@ -51,7 +52,11 @@ public class LevelManager : MonoBehaviour
         DestroyLevel();
         currentPatternIndex++;
         currentPatternIndex %= patternPrefabs.Count;
-
-        currentPattern = Instantiate(patternPrefabs[currentPatternIndex], spawnPoint.transform);
+        
+        if(_gameManager.GameData.Seated)
+            currentPattern = Instantiate(patternPrefabs[currentPatternIndex], seatedSpawnPoint.transform);
+        else
+            currentPattern = Instantiate(patternPrefabs[currentPatternIndex], standingSpawnPoint.transform);
+        
     }
 }
