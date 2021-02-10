@@ -89,6 +89,8 @@ public class GameRules : MonoBehaviour
         {
             _playerLost = true;
         }
+
+        FindObjectOfType<TeleportationProvider>().enabled = _gameManager.LevelManager.onTheSamePlatformAsPattern;
     }
 
     public void HitByBullet()

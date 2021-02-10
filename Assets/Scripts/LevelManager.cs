@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,7 +19,21 @@ public class LevelManager : MonoBehaviour
     private int currentPatternIndex;
     private int _currentPlatformIndex;
 
+    private int currentPlatformPlayerOnIndex;
+
+    public bool onTheSamePlatformAsPattern => currentPlatformPlayerOnIndex == _currentPlatformIndex;
+
     public EnemySphere enemySphere => currentPattern != null ? currentPattern.enemySphere : null;
+
+    public void OnEnteredTP(XRBaseInteractor interactor)
+    {
+        platforme p = interactor.gameObject.GetComponent<platforme>();
+
+        if(p != null)
+        {
+           currentPlatformPlayerOnIndex = platformes.IndexOf(p);
+        }
+    }
 
     private void Awake()
     {
