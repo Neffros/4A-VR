@@ -91,55 +91,55 @@ MonoBehaviour:
   sounds:
   - name: selectOption
     clip: {fileID: 8300000, guid: ce15ba45cf85b4a4f94887526edcd3e3, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: music
     clip: {fileID: 8300000, guid: 5ce0fb96beb5c6946baa4f98efc1e24a, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: spawn
     clip: {fileID: 8300000, guid: 121a452b50e69ef4483d1ecedce3204a, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: success
     clip: {fileID: 8300000, guid: bd05ea42572ec5f44bdc8fa02a993281, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: hitObstacle
     clip: {fileID: 0}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: shoot
     clip: {fileID: 8300000, guid: a48342a30cadc4344a7130640f45ca86, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: gameover
     clip: {fileID: 8300000, guid: ed4ada7ba824d9b4882af0960826af76, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: hitObstacle
     clip: {fileID: 8300000, guid: 9edc5c25200d47f408726a5c656c9630, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: hitObstacle
     clip: {fileID: 0}
-    volume: 1
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
