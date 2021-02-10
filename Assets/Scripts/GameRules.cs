@@ -65,6 +65,8 @@ public class GameRules : MonoBehaviour
 
         if (_gameManager.GameData.Score >= _gameManager.GameData.HighScore)
             _gameManager.GameData.HighScore = _gameManager.GameData.Score;
+        
+        _gameManager.GameData.Save();
         _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
        _gameManager.EndGameUiManager.UpdateScore();
        _gameManager.LevelManager.DestroyLevel();
