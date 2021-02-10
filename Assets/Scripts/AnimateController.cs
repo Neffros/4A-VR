@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class AnimateController : MonoBehaviour
 {
     public bool showSword;
@@ -56,6 +58,9 @@ public class AnimateController : MonoBehaviour
                 spawnedController = Instantiate(controllerPrefab, transform);
                 spawnedHand = Instantiate(handPrefab, transform);
                 _handAnimator = spawnedHand.GetComponent<Animator>();
+                XRInteractorLineVisual ray =
+                    gameObject.GetComponentInParent<XRInteractorLineVisual>();
+                ray.enabled = true;
                 animate = true;
             }
         }

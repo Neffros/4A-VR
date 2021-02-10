@@ -32,6 +32,7 @@ public class EnemySphere : MonoBehaviour
     {
         if(elapsedTime >= waitDurationBeforeShootingAgain)
         {
+            GameManager.Instance.SoundManager.Play("shoot");
             elapsedTime = 0;
             Bullet clone = Instantiate(bulletPrefab);
             clone.transform.position = transform.position;

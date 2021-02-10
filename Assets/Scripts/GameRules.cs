@@ -44,13 +44,6 @@ public class GameRules : MonoBehaviour
     private void Shoot()
     {
         Player player = FindObjectOfType<Player>();
-        Debug.Log("game manager call" + _gameManager.LevelManager.name);
-        Debug.Log("player call " + player.ShootTarget.name);
-        if (_gameManager.LevelManager.enemySphere == null)
-        {
-            Debug.Log("null sphere");
-        }
-        Debug.Log("enemy call " + _gameManager.LevelManager.enemySphere.name);
         _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
 
@@ -66,7 +59,7 @@ public class GameRules : MonoBehaviour
         _finished = true;
         _playerRay = FindObjectOfType<LineRenderer>();
         _playerRay.enabled = true;
-
+        _gameManager.SoundManager.Play("gameover");
         _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
         _playerRayVisual.enabled = true;
        _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
@@ -128,12 +121,14 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Score++;
         _gameManager.GameData.Timer = 20.0f;
+        _gameManager.SoundManager.Play("success");
         OnLevelWon?.Invoke();
         Debug.Log("WIN");
         NextLevel();
     }
     public void LoseLevel()
     {
+        _gameManager.SoundManager.Play("hitObstacle");
         if (!enteredZone)
         {
             Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
@@ -141,7 +136,6 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        _gameManager.SoundManager.Play("hitObstacle");
         Debug.Log("LOST");
         NextLevel();
     }

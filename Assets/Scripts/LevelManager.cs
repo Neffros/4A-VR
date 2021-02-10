@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
 
     public void NextPattern()
     {
+        platformes[_currentPlatformIndex].StopSource();
         DestroyLevel();
         //currentPatternIndex++;
         //currentPatternIndex %= patternPrefabs.Count;
@@ -88,6 +89,7 @@ public class LevelManager : MonoBehaviour
         currentPatternTrans.localScale= new Vector3(currentPatternTrans.localScale.x + scaleInc, currentPatternTrans.localScale.y + scaleInc, currentPatternTrans.localScale.z + scaleInc);
 
         
+        platformes[_currentPlatformIndex].PlaySource();
         if(_gameManager.GameData.Seated)
             currentPattern = Instantiate(patternPrefabs[currentPatternIndex], targetTransform.transform);
         else
