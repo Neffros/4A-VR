@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    private void Start()
+    {
+        GameManager.Instance.SoundManager = this;
+    }
+
     //take game setting volume with gamesingleton.instance.gamesettings.volume 
     public Sound[] sounds;
     public void Init()
@@ -24,7 +29,12 @@ public class SoundManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
+        {
+            Debug.Log("no source found");
             return;
+        }
+
+        Debug.Log("try playing source:" + s.source.name);
         if (s.loop) //is a music
             s.source.volume = s.volume;
         else

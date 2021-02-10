@@ -6,11 +6,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
-    private Rigidbody rb;
+    public  Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         hitOnce = false;
     }
 
@@ -32,6 +31,8 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             if(hitOnce) { return; }
+
+            Debug.Log("hit player!");
             hitOnce = true;
 
             GameManager.Instance.GameRules.HitByBullet();

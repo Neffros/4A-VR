@@ -32,12 +32,13 @@ public class GameRules : MonoBehaviour
         HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
         HitboxDetection.OnPathExitedEvent += OnPathExited;
 
-        player = FindObjectOfType<Player>();
     }
 
     private void OnPathExited()
     {
         enteredZone = false;
+        player = FindObjectOfType<Player>();
+        Debug.Log("game manager call" + _gameManager.LevelManager.name);
         _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
 
@@ -94,7 +95,7 @@ public class GameRules : MonoBehaviour
         _gameManager.GameData.LevelsPlayed++;
         enteredZone = false;
 
-        if (_gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
+        if (_gameManager.GameData.Score != 0 && _gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
         {
             _gameManager.GameData.Health++;
         }
@@ -128,7 +129,7 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        _gameManager.SoundManager.Play("hitObstacle");
+        //_gameManager.SoundManager.Play("hitObstacle");
         Debug.Log("LOST");
         NextLevel();
     }
