@@ -81,8 +81,17 @@ public class GameRules : MonoBehaviour
 
     public void NextLevel()
     {
+        _gameManager.GameData.LevelsPlayed++;
         enteredZone = false;
-        _gameManager.GameData.Timer = 20.0f;
+
+        if (_gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
+        {
+            _gameManager.GameData.Health++;
+        }
+        _gameManager.GameData.Timer = 20.0f - _gameManager.GameData.Score / 2;
+        if (_gameManager.GameData.Timer < 10.0f)
+            _gameManager.GameData.Timer = 10.0f;
+        
         _gameManager.LevelManager.NextPattern();
         OnNextLevel?.Invoke();
         

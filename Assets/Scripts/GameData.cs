@@ -9,6 +9,7 @@ public class GameData : MonoBehaviour
     private int _highScore = 0;
     private int _score = 0;
     private float _timer = 20.00f;
+    private int _levelsPlayed = 0;
     private bool _leftHand;
     private bool _seated;
     private void Start()
@@ -40,8 +41,6 @@ public class GameData : MonoBehaviour
         set => _timer = value;
     }
 
-
-
     public bool LeftHand
     {
         get => _leftHand;
@@ -60,6 +59,13 @@ public class GameData : MonoBehaviour
         _highScore = 0;
         _score = 0;
         _timer = 20.00f;
+        _levelsPlayed = 0;
+    }
+
+    public int LevelsPlayed
+    {
+        get => _levelsPlayed;
+        set => _levelsPlayed = value;
     }
 
     private void Update()
