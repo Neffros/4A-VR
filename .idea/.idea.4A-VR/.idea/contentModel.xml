@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AnimateController.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
           <e p="EndGameUIManager.cs" t="Include" />
           <e p="EnemySphere.cs" t="Include" />
           <e p="GameData.cs" t="Include" />
@@ -22,6 +23,8 @@
           <e p="Obstacle.cs" t="Include" />
           <e p="osef.cs" t="Include" />
           <e p="Pattern.cs" t="Include" />
+          <e p="platforme.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Sound.cs" t="Include" />
           <e p="SoundManager.cs" t="Include" />
           <e p="sword.cs" t="Include" />

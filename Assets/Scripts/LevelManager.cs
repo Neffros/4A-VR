@@ -6,11 +6,9 @@ using UnityEngine.Animations;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private List<Pattern> patternPrefabs;
-
+    [SerializeField] private List<platforme> platformes;
     private static LevelManager _instance;
 
-    public Transform seatedSpawnPoint;
-    public Transform standingSpawnPoint;
     public static LevelManager Instance => _instance;
 
     private Pattern currentPattern;
@@ -18,6 +16,7 @@ public class LevelManager : MonoBehaviour
     private GameManager _gameManager;
 
     private int currentPatternIndex;
+    private int _currentPlatformIndex;
 
     public EnemySphere enemySphere => currentPattern != null ? currentPattern.enemySphere : null;
 
@@ -56,10 +55,9 @@ public class LevelManager : MonoBehaviour
     public void NextPattern()
     {
         DestroyLevel();
-        Transform targetTransform = _gameManager.GameData.Seated ? seatedSpawnPoint : standingSpawnPoint;
         //currentPatternIndex++;
         //currentPatternIndex %= patternPrefabs.Count;
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 3);
         float randomZ = 0.0f;
         switch (rand)
         {
@@ -75,9 +73,16 @@ public class LevelManager : MonoBehaviour
         }
         
         Quaternion rotation = new Quaternion(0,0,randomZ,0);
+        
+
+
+        _currentPlatformIndex = Random.Range(0, platformes.Count);
+        currentPatternIndex = Random.Range(0, patternPrefabs.Count);
+        
+        Transform targetTransform = _gameManager.GameData.Seated ? platformes[_currentPlatformIndex].seatedSpawnPoint : platformes[_currentPlatformIndex].standingSpawnPoint;
         targetTransform.rotation = rotation;
 
-        currentPatternIndex = Random.Range(0, patternPrefabs.Count);
+        
         if(_gameManager.GameData.Seated)
             currentPattern = Instantiate(patternPrefabs[currentPatternIndex], targetTransform.transform);
         else
