@@ -33,10 +33,12 @@ public class GameRules : MonoBehaviour
 
     }
 
+    private bool startShooting;
+
     private void OnPathExited()
     {
         enteredZone = false;
-        Shoot();
+        startShooting = true;
     }
 
     private void Shoot()
@@ -77,7 +79,7 @@ public class GameRules : MonoBehaviour
             return;
         }
 
-        if (_gameManager.GameData.Timer <= 0)
+        if (_gameManager.GameData.Timer <= 0 || startShooting)
         {
             Shoot();
         }
@@ -97,6 +99,7 @@ public class GameRules : MonoBehaviour
     {
         _gameManager.GameData.LevelsPlayed++;
         enteredZone = false;
+        startShooting = false;
 
         if (_gameManager.GameData.Score != 0 && _gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
         {
