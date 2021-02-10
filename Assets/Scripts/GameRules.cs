@@ -77,12 +77,13 @@ public class GameRules : MonoBehaviour
     {
         if (!enteredZone)
         {
-            Debug.Log("WIN");
+            Debug.Log("Le joueur n'est pas passé par l'entrée ! (WIN)");
             return;
         }
         _gameManager.GameData.Score++;
         _gameManager.GameData.Timer = 20.0f;
         OnLevelWon?.Invoke();
+        Debug.Log("WIN");
         NextLevel();
     }
     public void LoseLevel()
