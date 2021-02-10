@@ -22,7 +22,6 @@ public class GameRules : MonoBehaviour
 
     private bool enteredZone;
 
-    private Player player;
 
     private void Start()
     {
@@ -37,7 +36,12 @@ public class GameRules : MonoBehaviour
     private void OnPathExited()
     {
         enteredZone = false;
-        player = FindObjectOfType<Player>();
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        Player player = FindObjectOfType<Player>();
         Debug.Log("game manager call" + _gameManager.LevelManager.name);
         _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
@@ -75,8 +79,7 @@ public class GameRules : MonoBehaviour
 
         if (_gameManager.GameData.Timer <= 0)
         {
-            enteredZone = true;
-            LoseLevel();
+            Shoot();
         }
         if (_gameManager.GameData.Health == 0)
         {
