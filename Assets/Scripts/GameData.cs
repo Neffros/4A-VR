@@ -53,7 +53,15 @@ public class GameData : MonoBehaviour
         get => _seated;
         set => _seated = value;
     }
-    
+
+    public void Reset()
+    {
+        health = 3;
+        _highScore = 0;
+        _score = 0;
+        _timer = 20.00f;
+    }
+
     private void Update()
     {
         if (GameManager.Instance.GameRules.Finished) return;
