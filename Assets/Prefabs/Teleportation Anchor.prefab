@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 5454921601430184217}
   - component: {fileID: 2908575274903523642}
   - component: {fileID: 6842945833104646296}
+  - component: {fileID: 8908132433238701586}
   m_Layer: 0
   m_Name: Teleportation Anchor
   m_TagString: Untagged
@@ -200,7 +201,18 @@ MonoBehaviour:
       m_Calls: []
   m_OnActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8908132433238701586}
+        m_MethodName: OnActivateEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
@@ -320,6 +332,18 @@ MonoBehaviour:
   seatedSpawnPoint: {fileID: 701799181820936670}
   standingSpawnPoint: {fileID: 3125217562118600686}
   spawnAudio: {fileID: 2908575274903523642}
+--- !u!114 &8908132433238701586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454921601430184218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9719cfdb32fbf479a7489b9b6c7d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5454921602536686169
 GameObject:
   m_ObjectHideFlags: 0
