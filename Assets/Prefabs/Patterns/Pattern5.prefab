@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 6687270115549676269}
   - component: {fileID: 91649451578813753}
   - component: {fileID: 7026666526901730301}
+  - component: {fileID: 944089070659386049}
   m_Layer: 9
   m_Name: HitboxPath
   m_TagString: Untagged
@@ -166,6 +167,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &944089070659386049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774718497566166747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741d08d0046d8044ca6cad2c20be88d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxDetection: {fileID: 14854070501287285}
 --- !u!1 &2614012579173327712
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +284,7 @@ GameObject:
   - component: {fileID: 6100043789522965299}
   - component: {fileID: 3628321201592938745}
   - component: {fileID: 7267686889222702425}
+  - component: {fileID: 5251976089931618871}
   m_Layer: 9
   m_Name: HitboxStart
   m_TagString: Untagged
@@ -367,6 +382,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5251976089931618871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9146107423389916900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fec525c96ac55e40a9e8aeb283a7136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitboxDetection: {fileID: 14854070501287285}
 --- !u!1001 &227047851025082782
 PrefabInstance:
   m_ObjectHideFlags: 0

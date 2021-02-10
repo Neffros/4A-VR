@@ -25,6 +25,8 @@ public class GameRules : MonoBehaviour
 
         HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
         HitboxDetection.OnPathExitedEvent += OnPathExited;
+        
+        NextLevel();
     }
 
     private void OnPathExited()
@@ -41,9 +43,12 @@ public class GameRules : MonoBehaviour
 
     private void Endgame()
     {
-       // _gameManager.EndGameUiManager.UpdateScore();
         _playerLost = false;
-        //do stuff
+        _finished = true;
+       _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
+       _gameManager.EndGameUiManager.UpdateScore();
+       _gameManager.LevelManager.DestroyLevel();
+       //do stuff
     }
 
     private void Update()
@@ -58,6 +63,7 @@ public class GameRules : MonoBehaviour
 
         if (_gameManager.GameData.Timer <= 0)
         {
+            enteredZone = true;
             LoseLevel();
         }
         if (_gameManager.GameData.Health == 0)
@@ -68,6 +74,8 @@ public class GameRules : MonoBehaviour
 
     public void NextLevel()
     {
+        enteredZone = false;
+        _gameManager.GameData.Timer = 20.0f;
         _gameManager.LevelManager.NextPattern();
         OnNextLevel?.Invoke();
         
