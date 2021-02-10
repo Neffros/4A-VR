@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.SoundManager = this;
+        Init();
     }
 
     //take game setting volume with gamesingleton.instance.gamesettings.volume 

@@ -22,7 +22,6 @@ public class GameRules : MonoBehaviour
 
     private bool enteredZone;
 
-    private Player player;
 
     private void Start()
     {
@@ -34,11 +33,24 @@ public class GameRules : MonoBehaviour
 
     }
 
+    private bool startShooting;
+
     private void OnPathExited()
     {
         enteredZone = false;
-        player = FindObjectOfType<Player>();
+        startShooting = true;
+    }
+
+    private void Shoot()
+    {
+        Player player = FindObjectOfType<Player>();
         Debug.Log("game manager call" + _gameManager.LevelManager.name);
+        Debug.Log("player call " + player.ShootTarget.name);
+        if (_gameManager.LevelManager.enemySphere == null)
+        {
+            Debug.Log("null sphere");
+        }
+        Debug.Log("enemy call " + _gameManager.LevelManager.enemySphere.name);
         _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
     }
 
@@ -73,10 +85,9 @@ public class GameRules : MonoBehaviour
             return;
         }
 
-        if (_gameManager.GameData.Timer <= 0)
+        if (_gameManager.GameData.Timer <= 0 || startShooting)
         {
-            enteredZone = true;
-            LoseLevel();
+            Shoot();
         }
         if (_gameManager.GameData.Health == 0)
         {
@@ -94,6 +105,7 @@ public class GameRules : MonoBehaviour
     {
         _gameManager.GameData.LevelsPlayed++;
         enteredZone = false;
+        startShooting = false;
 
         if (_gameManager.GameData.Score != 0 && _gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
         {
@@ -129,7 +141,7 @@ public class GameRules : MonoBehaviour
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        //_gameManager.SoundManager.Play("hitObstacle");
+        _gameManager.SoundManager.Play("hitObstacle");
         Debug.Log("LOST");
         NextLevel();
     }
