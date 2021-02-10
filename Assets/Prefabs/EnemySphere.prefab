@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2923788220201249475}
   - component: {fileID: 2609217180609014933}
   - component: {fileID: 3144684860184840893}
+  - component: {fileID: 3942366734931108252}
   m_Layer: 0
   m_Name: EnemySphere
   m_TagString: Untagged
@@ -126,3 +127,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3078279801029668964, guid: dc555dab99df1e24ca192ef31b296985,
     type: 3}
   waitDurationBeforeShootingAgain: 5
+--- !u!111 &3942366734931108252
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439016067514421730}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7c67d0088692f1440895a22ab5e6707a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7c67d0088692f1440895a22ab5e6707a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
