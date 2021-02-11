@@ -11,6 +11,7 @@ public class GameRules : MonoBehaviour
     private  bool _playerLost;
     private bool _finished;
     private bool _started;
+    private bool _Danger;
     private GameManager _gameManager;
     
     private XRInteractorLineVisual _playerRayVisual;
@@ -22,7 +23,13 @@ public class GameRules : MonoBehaviour
     public static event Response OnLevelWon;
 
     private bool enteredZone;
+    private bool _hasCheated;
 
+    public bool HasCheated
+    {
+        get => _hasCheated;
+        set => _hasCheated = value;
+    }
     public bool Started
     {
         get => _started;
@@ -54,8 +61,8 @@ public class GameRules : MonoBehaviour
     }
 
     private void OnStartZoneEntered()
-    {
-        Debug.Log("StartZone entered");
+    { 
+        //Debug.Log("StartZone entered");
         enteredZone = true;
     }
 
@@ -89,6 +96,11 @@ public class GameRules : MonoBehaviour
             return;
         }
 
+        if (_gameManager.GameData.Timer <= 2.0f && !_Danger)
+        {
+            GameManager.Instance.SoundManager.Play("Danger");
+            _Danger = true;
+        }         
         if (_gameManager.GameData.Timer <= 0 || startShooting)
         {
             Shoot();
@@ -118,7 +130,8 @@ public class GameRules : MonoBehaviour
         _gameManager.GameData.Timer = 20.0f - _gameManager.GameData.Score / 2;
         if (_gameManager.GameData.Timer < 10.0f)
             _gameManager.GameData.Timer = 10.0f;
-        
+        _Danger = false;
+
         _gameManager.LevelManager.NextPattern();
         OnNextLevel?.Invoke();
     }
@@ -139,15 +152,16 @@ public class GameRules : MonoBehaviour
     }
     public void LoseLevel()
     {
-        _gameManager.SoundManager.Play("hitObstacle");
+       
         if (!enteredZone)
         {
-            Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
+            //Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
             return;
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        Debug.Log("LOST");
+        //Debug.Log("LOST");
+        _gameManager.SoundManager.Play("fail");
         NextLevel();
     }
 

@@ -10,7 +10,7 @@ public class EnemySphere : MonoBehaviour
     private float elapsedTime;
     private int swordLayer;
     private float bulletSpeed;
-
+    private float tmpBulletSpeed;
   
 
     private void Awake()
@@ -35,6 +35,7 @@ public class EnemySphere : MonoBehaviour
 
     public void ShootPlayer(Vector3 target)
     {
+        tmpBulletSpeed = bulletSpeed;
         if(elapsedTime >= waitDurationBeforeShootingAgain)
         {
             GameManager.Instance.SoundManager.Play("shoot");
@@ -44,9 +45,14 @@ public class EnemySphere : MonoBehaviour
                 if (GameManager.Instance.GameData.Score != 0 &&GameManager.Instance.GameData.Score % 5 == 0) 
                     bulletSpeed += 1.0f;
             }
+
+            if (GameManager.Instance.GameRules.HasCheated)
+                bulletSpeed *= 1.5f;
+
             Bullet clone = Instantiate(bulletPrefab);
             clone.transform.position = transform.position;
             clone.Shoot((target - transform.position).normalized);
+            bulletSpeed = tmpBulletSpeed;
         }
     }
 }

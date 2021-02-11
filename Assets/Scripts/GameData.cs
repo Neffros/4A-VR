@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     private int health = 3;
-    private int _highScore = 5;
+    private int _highScore;
     private int _score = 0;
     private float _timer = 20.00f;
     private int _levelsPlayed = 0;
@@ -58,7 +58,7 @@ public class GameData : MonoBehaviour
     public void Reset()
     {
         health = 3;
-        _highScore = 0;
+        Load();
         _score = 0;
         _timer = 20.00f;
         _levelsPlayed = 0;
@@ -85,8 +85,7 @@ public class GameData : MonoBehaviour
     {
         if (GameManager.Instance.GameRules.Finished) return;
         if (!GameManager.Instance.GameRules.Started) return;
-        if(_timer == 2.0f)
-            GameManager.Instance.SoundManager.Play("Danger");
+
         _timer -= Time.deltaTime;
     }
 }

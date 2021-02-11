@@ -39,10 +39,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemySphere.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HitboxStart.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameRules.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EndGameUIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameRules.cs" />
       </list>
     </option>
   </component>
@@ -102,7 +102,7 @@
       <updated>1612819324725</updated>
       <workItem from="1612819351857" duration="4024000" />
       <workItem from="1612898211222" duration="7078000" />
-      <workItem from="1612957775231" duration="13067000" />
+      <workItem from="1612957775231" duration="14422000" />
     </task>
     <servers />
   </component>

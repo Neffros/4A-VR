@@ -131,7 +131,7 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: hitObstacle
+  - name: fail
     clip: {fileID: 8300000, guid: 9edc5c25200d47f408726a5c656c9630, type: 3}
     volume: 1
     pitch: 1
