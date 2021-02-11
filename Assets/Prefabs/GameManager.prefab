@@ -133,12 +133,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: hitObstacle
     clip: {fileID: 8300000, guid: 9edc5c25200d47f408726a5c656c9630, type: 3}
-    volume: 0.7
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: hitObstacle
-    clip: {fileID: 0}
+  - name: Danger
+    clip: {fileID: 8300000, guid: 9413b9ffb8f95944d8a6ff1cad8e0027, type: 3}
     volume: 0.7
     pitch: 1
     loop: 0

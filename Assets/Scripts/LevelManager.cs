@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
     private int currentPatternIndex;
     private int _currentPlatformIndex;
 
+    public List<platforme> Platformes => platformes;
+
+    public int CurrentPlatformIndex => _currentPlatformIndex;
+
     public EnemySphere enemySphere => currentPattern != null ? currentPattern.enemySphere : null;
 
     private void Awake()
@@ -79,13 +83,13 @@ public class LevelManager : MonoBehaviour
 
         _currentPlatformIndex = Random.Range(0, platformes.Count);
         currentPatternIndex = Random.Range(0, patternPrefabs.Count);
-        
+                
         Transform targetTransform = _gameManager.GameData.Seated ? platformes[_currentPlatformIndex].seatedSpawnPoint : platformes[_currentPlatformIndex].standingSpawnPoint;
         targetTransform.rotation = rotation;
 
         Pattern pattern = patternPrefabs[currentPatternIndex];
         Transform currentPatternTrans = pattern.transform;
-        float scaleInc = 1 - platformes[_currentPlatformIndex].Scale;
+        float scaleInc = 1 - platformes[_currentPlatformIndex].Scale - 0.5f;
         currentPatternTrans.localScale= new Vector3(currentPatternTrans.localScale.x + scaleInc, currentPatternTrans.localScale.y + scaleInc, currentPatternTrans.localScale.z + scaleInc);
 
         

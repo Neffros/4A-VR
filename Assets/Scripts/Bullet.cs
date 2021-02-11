@@ -19,6 +19,12 @@ public class Bullet : MonoBehaviour
         
     }
 
+    public float Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+
     private bool hitOnce;
 
     internal void Shoot(Vector3 direction)

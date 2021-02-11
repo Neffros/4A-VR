@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -13,10 +14,16 @@ public class MenuManager : MonoBehaviour
     public Dropdown mainHand;
     public Dropdown playMode;
 
+    private void Start()
+    {
+        GameManager.Instance.GameRules.Started = false;
+    }
+
     public void StartGame()
     {
+        GameManager.Instance.GameRules.Started = true;
         GameManager.Instance.SoundManager.Play("selectOption");
-        SceneManager.LoadScene(3); //TODO change to definitive
+        SceneManager.LoadScene(2); //TODO change to definitive
     }
 
     public void DisplaySettings()
@@ -28,6 +35,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
+        GameManager.Instance.GameData.Save();
         GameManager.Instance.SoundManager.Play("selectOption");
         Application.Quit();
     }

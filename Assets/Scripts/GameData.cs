@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     private int health = 3;
-    private int _highScore = 0;
+    private int _highScore = 5;
     private int _score = 0;
     private float _timer = 20.00f;
     private int _levelsPlayed = 0;
@@ -15,6 +15,8 @@ public class GameData : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.GameData = this;
+        Load();
+        
     }
 
     public int Health
@@ -61,6 +63,17 @@ public class GameData : MonoBehaviour
         _timer = 20.00f;
         _levelsPlayed = 0;
     }
+    
+    public void Load()
+    {
+        _highScore = PlayerPrefs.GetInt("hiscore");
+    }
+
+    public void Save()
+    {
+        PlayerPrefs.SetInt("hiscore", _highScore);
+        PlayerPrefs.Save();
+    }
 
     public int LevelsPlayed
     {
@@ -71,6 +84,9 @@ public class GameData : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.GameRules.Finished) return;
+        if (!GameManager.Instance.GameRules.Started) return;
+        if(_timer == 2.0f)
+            GameManager.Instance.SoundManager.Play("Danger");
         _timer -= Time.deltaTime;
     }
 }
