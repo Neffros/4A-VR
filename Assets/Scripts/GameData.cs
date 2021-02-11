@@ -58,7 +58,7 @@ public class GameData : MonoBehaviour
     public void Reset()
     {
         health = 3;
-        _highScore = 0;
+        Load();
         _score = 0;
         _timer = 20.00f;
         _levelsPlayed = 0;
