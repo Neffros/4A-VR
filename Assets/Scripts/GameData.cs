@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
     private int health = 3;
-    private int _highScore = 5;
+    private int _highScore;
     private int _score = 0;
     private float _timer = 20.00f;
     private int _levelsPlayed = 0;

@@ -61,8 +61,8 @@ public class GameRules : MonoBehaviour
     }
 
     private void OnStartZoneEntered()
-    {
-        Debug.Log("StartZone entered");
+    { 
+        //Debug.Log("StartZone entered");
         enteredZone = true;
     }
 
@@ -152,15 +152,16 @@ public class GameRules : MonoBehaviour
     }
     public void LoseLevel()
     {
-        _gameManager.SoundManager.Play("hitObstacle");
+       
         if (!enteredZone)
         {
-            Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
+            //Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
             return;
         }
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
-        Debug.Log("LOST");
+        //Debug.Log("LOST");
+        _gameManager.SoundManager.Play("hitObstacle");
         NextLevel();
     }
 
