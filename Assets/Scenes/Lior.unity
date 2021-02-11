@@ -1246,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
         type: 3}
       propertyPath: patternPrefabs.Array.size
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
         type: 3}
@@ -1280,6 +1280,30 @@ PrefabInstance:
       propertyPath: patternPrefabs.Array.data[7]
       value: 
       objectReference: {fileID: 4221733840141804766, guid: f48ab62cd2d6dab48957690cf16feca7,
+        type: 3}
+    - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
+        type: 3}
+      propertyPath: patternPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 4221733840141804766, guid: 796526aed2122b7469b6b19303d2b577,
+        type: 3}
+    - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
+        type: 3}
+      propertyPath: patternPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 4221733840141804766, guid: d81341a46bfade54da4d94e2d431d4d4,
+        type: 3}
+    - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
+        type: 3}
+      propertyPath: patternPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 4221733840141804766, guid: 5a6f8494658036b45bab8a4df5165f9b,
+        type: 3}
+    - target: {fileID: 3135154296204642198, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
+        type: 3}
+      propertyPath: patternPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 4221733840141804766, guid: 2b9cd98154c2a3746b78402b80434a90,
         type: 3}
     - target: {fileID: 3135154296204642199, guid: 0a1e1f8c23d411c49b9b60add30f7a2c,
         type: 3}
