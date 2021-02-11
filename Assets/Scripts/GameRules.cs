@@ -10,6 +10,7 @@ public class GameRules : MonoBehaviour
     
     private  bool _playerLost;
     private bool _finished;
+    private bool _started;
     private GameManager _gameManager;
     
     private XRInteractorLineVisual _playerRayVisual;
@@ -22,6 +23,11 @@ public class GameRules : MonoBehaviour
 
     private bool enteredZone;
 
+    public bool Started
+    {
+        get => _started;
+        set => _started = value;
+    }
 
     private void Start()
     {
@@ -62,7 +68,7 @@ public class GameRules : MonoBehaviour
         _gameManager.SoundManager.Play("gameover");
         _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
         _playerRayVisual.enabled = true;
-
+        _gameManager.LevelManager.Platformes[_gameManager.LevelManager.CurrentPlatformIndex].StopSource();
         if (_gameManager.GameData.Score >= _gameManager.GameData.HighScore)
             _gameManager.GameData.HighScore = _gameManager.GameData.Score;
         

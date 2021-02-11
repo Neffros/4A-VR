@@ -84,6 +84,7 @@ public class GameData : MonoBehaviour
     private void Update()
     {
         if (GameManager.Instance.GameRules.Finished) return;
+        if (!GameManager.Instance.GameRules.Started) return;
         _timer -= Time.deltaTime;
     }
 }

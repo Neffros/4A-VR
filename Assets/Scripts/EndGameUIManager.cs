@@ -35,7 +35,7 @@ public class EndGameUIManager : MonoBehaviour
        _gameManager.SoundManager.Play("selectOption");
        _gameManager.ResetData();
        endGamePanel.SetActive(false);
-       SceneManager.LoadScene(3);
+       SceneManager.LoadScene(2);
    }
    
    public void ReturnToMainMenu()

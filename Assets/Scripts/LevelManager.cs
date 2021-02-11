@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
     private int currentPatternIndex;
     private int _currentPlatformIndex;
 
+    public List<platforme> Platformes => platformes;
+
+    public int CurrentPlatformIndex => _currentPlatformIndex;
+
     public EnemySphere enemySphere => currentPattern != null ? currentPattern.enemySphere : null;
 
     private void Awake()
