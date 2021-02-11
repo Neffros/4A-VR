@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fb2f79d562b4a46a8e14e2aaf5d921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seatedSpawnPoint: {fileID: 0}
+  seatedSpawnPoint: {fileID: 3439359493910089289}
   standingSpawnPoint: {fileID: 3125217562118600686}
   spawnAudio: {fileID: 2908575274903523642}
 --- !u!114 &8908132433238701586

@@ -85,8 +85,7 @@ public class GameData : MonoBehaviour
     {
         if (GameManager.Instance.GameRules.Finished) return;
         if (!GameManager.Instance.GameRules.Started) return;
-        if(_timer == 2.0f)
-            GameManager.Instance.SoundManager.Play("Danger");
+
         _timer -= Time.deltaTime;
     }
 }

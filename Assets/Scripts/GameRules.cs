@@ -11,6 +11,7 @@ public class GameRules : MonoBehaviour
     private  bool _playerLost;
     private bool _finished;
     private bool _started;
+    private bool _Danger;
     private GameManager _gameManager;
     
     private XRInteractorLineVisual _playerRayVisual;
@@ -22,7 +23,13 @@ public class GameRules : MonoBehaviour
     public static event Response OnLevelWon;
 
     private bool enteredZone;
+    private bool _hasCheated;
 
+    public bool HasCheated
+    {
+        get => _hasCheated;
+        set => _hasCheated = value;
+    }
     public bool Started
     {
         get => _started;
@@ -89,6 +96,11 @@ public class GameRules : MonoBehaviour
             return;
         }
 
+        if (_gameManager.GameData.Timer <= 2.0f && !_Danger)
+        {
+            GameManager.Instance.SoundManager.Play("Danger");
+            _Danger = true;
+        }         
         if (_gameManager.GameData.Timer <= 0 || startShooting)
         {
             Shoot();
@@ -118,7 +130,8 @@ public class GameRules : MonoBehaviour
         _gameManager.GameData.Timer = 20.0f - _gameManager.GameData.Score / 2;
         if (_gameManager.GameData.Timer < 10.0f)
             _gameManager.GameData.Timer = 10.0f;
-        
+        _Danger = false;
+
         _gameManager.LevelManager.NextPattern();
         OnNextLevel?.Invoke();
     }

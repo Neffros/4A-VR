@@ -13,17 +13,7 @@ public class HitboxDetection : MonoBehaviour
     public static event Response OnStartZoneEntered;
 
     private bool enteredStartZone;
-
-
-    private void Awake()
-    {
-        return;
-        GameRules.OnLevelWon +=GameManager.Instance.DisableSword;
-        GameRules.OnLevelLost += GameManager.Instance.DisableSword;
-
-        GameRules.OnNextLevel += GameManager.Instance.EnableSword;
-    }
-
+    
     internal void OnEnteredStartZone()
     {
         enteredStartZone = true;
@@ -36,6 +26,8 @@ public class HitboxDetection : MonoBehaviour
         {
             enteredStartZone = false;
             OnPathExitedEvent();
+            GameManager.Instance.SoundManager.Play("Danger");
+            GameManager.Instance.GameRules.HasCheated = true;
         }
     }
 
