@@ -161,7 +161,7 @@ public class GameRules : MonoBehaviour
         _gameManager.GameData.Health--;
         OnLevelLost?.Invoke();
         //Debug.Log("LOST");
-        _gameManager.SoundManager.Play("hitObstacle");
+        _gameManager.SoundManager.Play("fail");
         NextLevel();
     }
 
