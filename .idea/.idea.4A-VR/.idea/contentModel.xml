@@ -19,6 +19,7 @@
           <e p="HitboxPath.cs" t="Include" />
           <e p="HitboxStart.cs" t="Include" />
           <e p="LevelManager.cs" t="Include" />
+          <e p="LobbyManager.cs" t="Include" />
           <e p="MenuManager.cs" t="Include" />
           <e p="Obstacle.cs" t="Include" />
           <e p="osef.cs" t="Include" />

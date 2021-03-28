@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55d84fea-c613-4c30-924d-a1716f65d491" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +13,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameRules.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LobbyManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Sound.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/testEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,8 +43,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HitboxStart.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EndGameUIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameRules.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
       </list>
     </option>
   </component>
@@ -102,7 +104,8 @@
       <updated>1612819324725</updated>
       <workItem from="1612819351857" duration="4024000" />
       <workItem from="1612898211222" duration="7078000" />
-      <workItem from="1612957775231" duration="14422000" />
+      <workItem from="1612957775231" duration="15726000" />
+      <workItem from="1616914431440" duration="548000" />
     </task>
     <servers />
   </component>
