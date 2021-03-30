@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 2484211462912047217, guid: 105e222dfc1758347942265c9658c393,
         type: 3}
       propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2484211462912047217, guid: 105e222dfc1758347942265c9658c393,
         type: 3}
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 4105425863293182148, guid: 105e222dfc1758347942265c9658c393,
         type: 3}
       propertyPath: m_text
-      value: Level 2
+      value: Paint
       objectReference: {fileID: 0}
     - target: {fileID: 4105425863293182148, guid: 105e222dfc1758347942265c9658c393,
         type: 3}
@@ -905,7 +905,7 @@ PrefabInstance:
     - target: {fileID: 4105425863293182148, guid: 105e222dfc1758347942265c9658c393,
         type: 3}
       propertyPath: m_text
-      value: 'Level 1 '
+      value: Maze Game
       objectReference: {fileID: 0}
     - target: {fileID: 4105425863293182148, guid: 105e222dfc1758347942265c9658c393,
         type: 3}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 470841307f294374baa156339cbd23c9, type: 3}
-  m_Name: RightHandDict
+  m_Name: LeftHandDict
   m_EditorClassIdentifier: 
   controllerType: 1
-  controllerPrefab: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+  controllerPrefab: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
     type: 3}
   hasAnimator: 1
