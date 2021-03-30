@@ -67,11 +67,16 @@ public class GameData : MonoBehaviour
     public void Load()
     {
         _highScore = PlayerPrefs.GetInt("hiscore");
+        _leftHand = (PlayerPrefs.GetInt("usedHand") != 0);
+        _seated = (PlayerPrefs.GetInt("seated") != 0);
+        
     }
 
     public void Save()
     {
         PlayerPrefs.SetInt("hiscore", _highScore);
+        PlayerPrefs.SetInt("usedHand", _leftHand? 0 : 1);
+        PlayerPrefs.SetInt("seated", _seated ? 0 : 1);
         PlayerPrefs.Save();
     }
 

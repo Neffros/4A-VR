@@ -47,6 +47,10 @@ MonoBehaviour:
   showController: 0
   isLeftHand: 1
   controllerChars: 320
+  controllerPrefabs:
+  - {fileID: 919132149155446097, guid: a4a3e4097e94372429ba7f8531a023d3, type: 3}
+  - {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b, type: 3}
+  - {fileID: 4187178135158915703, guid: 6208b22e0e64c9f469bd43c5de6d8433, type: 3}
   controllerPrefab: {fileID: 4187178135158915703, guid: 6208b22e0e64c9f469bd43c5de6d8433,
     type: 3}
   handPrefab: {fileID: 109434732395284509, guid: 65847589f926b734d9eaed6e25f0046b,
