@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using mazeGame;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Timeline;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +21,15 @@ public class GameManager : MonoBehaviour
     public EndGameUIManager EndGameUiManager;
     public GameRules GameRules;
     public SoundManager SoundManager;
+
+
+    private InputDevice device;
+
+    public InputDevice Device
+    {
+        get => device;
+        set => device = value;
+    }
 
     public Collider sword;
     private void Awake()

@@ -12,12 +12,6 @@ public class AnimateController : MonoBehaviour
     
     public ControllerDict controllerDict; 
     
-    
-    public List<GameObject> controllerPrefabs;
-    public GameObject controllerPrefab;
-    public GameObject handPrefab;
-    public GameObject swordPrefab;
-    
     private InputDevice _controller;
     private Animator _controllerAnimator;
 
@@ -32,7 +26,7 @@ public class AnimateController : MonoBehaviour
     {
        TryInitialize();
        if (controllerDict.controllerType == ControllerType.Brush)
-           Instantiate(controllerDict.controllerPrefab);
+           Instantiate(controllerDict.controllerPrefab, transform);
     }
 
     void TryInitialize()
@@ -48,7 +42,7 @@ public class AnimateController : MonoBehaviour
         if (devices.Count > 0)
         {
             _controller = devices[0];
-
+            GameManager.Instance.Device = _controller;
             spawnedController = Instantiate(controllerDict.controllerPrefab, transform);
             if (controllerDict.hasAnimator)
             {
