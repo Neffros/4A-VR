@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager = new SceneManager();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
 

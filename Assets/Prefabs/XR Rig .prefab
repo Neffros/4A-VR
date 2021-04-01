@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 9203705703904380737}
   - component: {fileID: 3637663295589808415}
   - component: {fileID: 6451820937140250287}
+  - component: {fileID: 4622779817248087579}
   m_Layer: 0
   m_Name: 'XR Rig '
   m_TagString: Untagged
@@ -628,6 +629,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeout: 10
   m_XRRig: {fileID: 0}
+--- !u!114 &4622779817248087579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570915769063626045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDictLeft: {fileID: 11400000, guid: a4091f78bdba9c840a08e1f1d6dbf1ff, type: 2}
+  baseDictRight: {fileID: 11400000, guid: 57979921958586b489921fce98e7415e, type: 2}
+  XRControllers:
+  - {fileID: 6897205812431270188}
+  - {fileID: 1677946952669497773}
 --- !u!1 &5755853504438227397
 GameObject:
   m_ObjectHideFlags: 0

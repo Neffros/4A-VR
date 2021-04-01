@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4418706484518344538
+--- !u!1 &2722945841447799375
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 713979183400548166}
-  - component: {fileID: 9030271827227681814}
+  - component: {fileID: 2722945841447799369}
+  - component: {fileID: 2722945841447799374}
   m_Layer: 0
-  m_Name: RightBurshPresence
+  m_Name: RightSwordPresence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &713979183400548166
+--- !u!4 &2722945841447799369
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418706484518344538}
+  m_GameObject: {fileID: 2722945841447799375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8693695, y: 4.6753078, z: 8.383554}
+  m_LocalPosition: {x: 0.9441383, y: -0.32143462, z: 0.6795571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9030271827227681814
+--- !u!114 &2722945841447799374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418706484518344538}
+  m_GameObject: {fileID: 2722945841447799375}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}

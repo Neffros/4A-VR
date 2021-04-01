@@ -5,17 +5,25 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace mazeGame
 {
     public class MenuManager : MonoBehaviour
     {
 
+        private XRController xrController;
+
         public GameObject mainMenuPanel;
         public GameObject settingsPanel;
         public Dropdown mainHand;
         public Dropdown playMode;
 
+
+        public ControllerDict leftHandDict;
+        public ControllerDict rightHandDict;
+        public ControllerDict leftSwordDict;
+        public ControllerDict rightSwordDict;
         private void Start()
         {
             GameManager.Instance.GameRules.Started = false;
@@ -23,8 +31,23 @@ namespace mazeGame
 
         public void StartGame()
         {
+            GameData gameData = GameManager.Instance.GameData;
             GameManager.Instance.GameRules.Started = true;
             GameManager.Instance.SoundManager.Play("selectOption");
+            
+            if (gameData.LeftHand)
+            {
+                gameData.controllerManager.ChangeController(leftSwordDict);
+                gameData.controllerManager.ChangeController(rightHandDict);
+                //gameData.LeftController.controllerDict = leftSwordDict;
+                //gameData.RightController.controllerDict = rightHandDict;
+            }
+            else
+            {
+                gameData.controllerManager.ChangeController(rightHandDict);
+                gameData.controllerManager.ChangeController(leftSwordDict);
+            }
+
             SceneManager.LoadScene(2); //TODO change to definitive
         }
 
@@ -57,7 +80,7 @@ namespace mazeGame
                 gameManager.GameData.Seated = false;
             else
                 gameManager.GameData.Seated = true;
-
+            
             settingsPanel.gameObject.SetActive(false);
             mainMenuPanel.gameObject.SetActive(true);
 

@@ -12,6 +12,23 @@ public class GameData : MonoBehaviour
     private int _levelsPlayed = 0;
     private bool _leftHand;
     private bool _seated;
+
+    [HideInInspector] public ControllerManager controllerManager;
+    /*private ControllerManager leftController;
+    private ControllerManager rightController;
+
+    public ControllerManager LeftController
+    {
+        get => leftController;
+        set => leftController = value;
+    }
+
+    public ControllerManager RightController
+    {
+        get => rightController;
+        set => rightController = value;
+    }
+*/
     private void Start()
     {
         GameManager.Instance.GameData = this;

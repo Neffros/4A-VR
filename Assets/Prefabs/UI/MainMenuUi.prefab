@@ -3020,6 +3020,10 @@ MonoBehaviour:
   settingsPanel: {fileID: 1320932080125353125}
   mainHand: {fileID: 6995157545365895}
   playMode: {fileID: 5475654230141021377}
+  leftHandDict: {fileID: 11400000, guid: a4091f78bdba9c840a08e1f1d6dbf1ff, type: 2}
+  rightHandDict: {fileID: 11400000, guid: 57979921958586b489921fce98e7415e, type: 2}
+  leftSwordDict: {fileID: 11400000, guid: 975228a009cf8bb46ae8c5cd45a92f35, type: 2}
+  rightSwordDict: {fileID: 11400000, guid: cdc60f26979c50f4087cde4cb3dbaf41, type: 2}
 --- !u!1 &8357499163995433895
 GameObject:
   m_ObjectHideFlags: 0

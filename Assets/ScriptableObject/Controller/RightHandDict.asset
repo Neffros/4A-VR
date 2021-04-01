@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 470841307f294374baa156339cbd23c9, type: 3}
   m_Name: RightHandDict
   m_EditorClassIdentifier: 
+  controllerCharacteristics: 576
   controllerType: 1
   controllerPrefab: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
     type: 3}
+  isLeftHanded: 0
   hasAnimator: 1
+  hasRayInteractor: 1
