@@ -641,8 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDictLeft: {fileID: 11400000, guid: a4091f78bdba9c840a08e1f1d6dbf1ff, type: 2}
-  baseDictRight: {fileID: 11400000, guid: 57979921958586b489921fce98e7415e, type: 2}
+  baseDictLeft: {fileID: 11400000, guid: 975228a009cf8bb46ae8c5cd45a92f35, type: 2}
+  baseDictRight: {fileID: 11400000, guid: cdc60f26979c50f4087cde4cb3dbaf41, type: 2}
   XRControllers:
   - {fileID: 6897205812431270188}
   - {fileID: 1677946952669497773}
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5755853504438227397}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 

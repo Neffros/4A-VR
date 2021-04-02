@@ -16,6 +16,6 @@ MonoBehaviour:
   controllerType: 0
   controllerPrefab: {fileID: 4187178135158915703, guid: 6208b22e0e64c9f469bd43c5de6d8433,
     type: 3}
-  isLeftHanded: 0
+  isLeftHanded: 1
   hasAnimator: 0
   hasRayInteractor: 0

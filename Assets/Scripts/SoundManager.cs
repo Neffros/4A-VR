@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("try playing source:" + soundName);
+        //Debug.Log("try playing source:" + soundName);
         if (s.loop) //is a music
             s.source.volume = s.volume;
         else
