@@ -27,7 +27,6 @@ public class ControllerDict : ScriptableObject
     public InputDeviceCharacteristics controllerCharacteristics;
     public ControllerType controllerType;
     public GameObject controllerPrefab;
-    public bool isLeftHanded;
     public bool hasAnimator;
     public bool hasRayInteractor;
 }

@@ -15,7 +15,7 @@ public class ControllerManager : MonoBehaviour
     public ControllerDict baseDictRight;
 
     private InputDevice[] _controllers = new InputDevice[2];
-    private Animator[] _animators;
+    private Animator[] _animators = new Animator[2];
     
 
     private GameObject spawnedController;
@@ -58,13 +58,15 @@ public class ControllerManager : MonoBehaviour
 
     public void TryInitialize()
     {
-        Debug.Log("in scene:" + SceneManager.GetActiveScene().name);
-        //Debug.Log("CALLING INIT FROM:" + gameObject.name);
-        int index = controllerDict.isLeftHanded ? 0 : 1;
+
+        //if left controller index = 0 if right = 1 
+        int index = ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&
+                     (controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Left) != 0)? 0 : 1;
+        
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerDict.controllerCharacteristics, devices);
 
-        foreach (var device in devices)
+        foreach (var device in devices) 
         {
             Debug.Log(device.name + " was added with char " + device.characteristics);
         }
@@ -77,20 +79,18 @@ public class ControllerManager : MonoBehaviour
             //Debug.Log("CONTROLLER HAS ANIMATOR: " + controllerDict.hasAnimator);
             if (controllerDict.hasAnimator)
             {
-                Transform test = spawnedController.GetComponent<Transform>();
-                //Debug.Log("got transfrom in object: " + test.gameObject.name);
-                //Debug.Log("getting component in object: " + spawnedController.gameObject.name);
+                Debug.Log("getting component in object: " + spawnedController.gameObject.name);
                 _animators[index] = spawnedController.GetComponent<Animator>();
                 _isAnimated[index] = true;
             }
 
             if (controllerDict.hasRayInteractor)
             {
-                /*XRInteractorLineVisual ray =
-                    XRControllers[index].GetComponentInParent<XRInteractorLineVisual>();
+                XRInteractorLineVisual ray =
+                    XRControllers[index].GetComponent<XRInteractorLineVisual>();
                 ray.enabled = true;
                 //Debug.Log("ray object name is : " + ray.gameObject.name);
-                */
+                
             }
         }
     }
