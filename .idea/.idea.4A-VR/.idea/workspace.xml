@@ -38,10 +38,11 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ControllerDict.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ControllerManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MazeGame/MenuManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ControllerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Paint/PaintControllerBehavior.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oDRjJSwIX5eXsVPDN605dKmSlz" />
@@ -108,7 +109,7 @@
       <workItem from="1617006325778" duration="602000" />
       <workItem from="1617109983215" duration="5357000" />
       <workItem from="1617174369549" duration="2436000" />
-      <workItem from="1617196953215" duration="31057000" />
+      <workItem from="1617196953215" duration="32972000" />
     </task>
     <servers />
   </component>

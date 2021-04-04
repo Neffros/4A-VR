@@ -84,8 +84,7 @@ public class ControllerManager : MonoBehaviour
     //the dict defines if it's the left or right one that is changed
     public void ChangeController(ControllerDict controllerDict)
     {
-        int index = ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&
-                     (controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Left) != 0)? 0 : 1;
+        int index = GetIndexFromDict(controllerDict);
         GameManager.Instance.GameData.SetControllerDict(controllerDict, index);
         TryInitialize(index);
     }
@@ -110,6 +109,11 @@ public class ControllerManager : MonoBehaviour
     }
 
 
+    public int GetIndexFromDict(ControllerDict controllerDict)
+    {
+        return ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&
+                     (controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Left) != 0)? 0 : 1;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -138,4 +142,6 @@ public class ControllerManager : MonoBehaviour
         if (primary2DAxis != Vector2.zero)
             Debug.Log("moving stick");*/
     }
+
+    public InputDevice[] Controllers => _controllers;
 }

@@ -24,14 +24,6 @@ public class GameManager : MonoBehaviour
     public ControllerDict baseDictLeft;
     public ControllerDict baseDictRight;
     
-    private InputDevice device;
-
-    public InputDevice Device
-    {
-        get => device;
-        set => device = value;
-    }
-
     public Collider sword;
     private void Awake()
     {
