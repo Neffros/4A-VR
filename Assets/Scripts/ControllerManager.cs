@@ -14,6 +14,7 @@ public class ControllerManager : MonoBehaviour
     private InputDevice[] _controllers = new InputDevice[2];
     private Animator[] _animators = new Animator[2];
 
+    public Camera vrCamera;
 
     private GameObject[] spawnedControllers = new GameObject[2];
     private ControllerDict controllerDict;
@@ -30,6 +31,7 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.pauseUIManager.VRCamera = vrCamera;
         TryInitialize(0);
         TryInitialize(1);
         
@@ -129,6 +131,9 @@ public class ControllerManager : MonoBehaviour
             if (_isAnimated[i]) UpdateHandAnimator(i);
         }
 
+        _controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool paused);
+        if (paused)
+            GameManager.Instance.pauseUIManager.OnPause();    
         
         /*_controller.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
         if (primaryButtonValue)

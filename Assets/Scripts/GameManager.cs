@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public LevelManager LevelManager { get; internal set; }
 
-    [HideInInspector] public SceneManager SceneManager;
+    public PauseUIManager pauseUIManager;
     public UIManager UiManager;
     public GameData GameData;
     public EndGameUIManager EndGameUiManager;
@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     {
         GameData.SetControllerDict(baseDictLeft, 0);
         GameData.SetControllerDict(baseDictRight, 1);
-        SceneManager = new SceneManager();
         SceneManager.LoadScene(4);
     }
 

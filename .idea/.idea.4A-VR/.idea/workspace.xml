@@ -31,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/testEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.10.0-preview.7/Runtime/Interaction/Interactors/XRBaseControllerInteractor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.10.0-preview.7/Runtime/XR/XRRig.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseUIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.interaction.toolkit@0.10.0-preview.7/Runtime/Inputs/InputActionManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -40,9 +41,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ControllerDict.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameData.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ControllerManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Paint/PaintControllerBehavior.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/MazeGame/MenuManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Paint/PaintControllerBehavior.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ControllerManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PauseUIManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1oDRjJSwIX5eXsVPDN605dKmSlz" />
@@ -109,7 +111,7 @@
       <workItem from="1617006325778" duration="602000" />
       <workItem from="1617109983215" duration="5357000" />
       <workItem from="1617174369549" duration="2436000" />
-      <workItem from="1617196953215" duration="33586000" />
+      <workItem from="1617196953215" duration="38742000" />
     </task>
     <servers />
   </component>
@@ -142,13 +144,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/ControllerManager.cs</url>
-          <line>31</line>
+          <line>32</line>
           <properties documentPath="E:\unity\4A-VR\Assets\Scripts\ControllerManager.cs" initialLine="46" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="900" />
+              <option value="928" />
             </startOffsets>
             <endOffsets>
-              <option value="901" />
+              <option value="929" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />

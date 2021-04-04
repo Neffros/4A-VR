@@ -1517,6 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vrCamera: {fileID: 8144291112360119896}
   XRControllers:
   - {fileID: 3547585704976965405}
   - {fileID: 2137759037056142952}

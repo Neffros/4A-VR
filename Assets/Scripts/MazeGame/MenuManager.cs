@@ -37,11 +37,8 @@ namespace mazeGame
             
             if (gameData.LeftHand)
             {
-                //TODO do an event raise so that on change
                 gameData.controllerManager.ChangeController(leftSwordDict);
                 gameData.controllerManager.ChangeController(rightHandDict);
-                //gameData.LeftController.controllerDict = leftSwordDict;
-                //gameData.RightController.controllerDict = rightHandDict;
             }
             else
             {

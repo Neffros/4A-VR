@@ -10,6 +10,7 @@ namespace paint
     {
 
         private InputDevice brush;
+        private InputDevice leftController;
         public ControllerDict brushDict;
         private Transform controllerTransform;
 
@@ -22,6 +23,7 @@ namespace paint
             gameData = GameManager.Instance.GameData;
             gameData.controllerManager.ChangeController(brushDict);
             brush = gameData.controllerManager.Controllers[1];
+            leftController = gameData.controllerManager.Controllers[0];
             //gameData.LeftHand ? gameData.controllerManager.Controllers[0] : gameData.controllerManager.Controllers[1]; //TODO CHANGE BASED ON MAIN HAND SETTING
 
         }
@@ -29,6 +31,8 @@ namespace paint
         // Update is called once per frame
         void Update()
         {
+
+            
             brush.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
             if (triggerValue > 0.1f)
             {
