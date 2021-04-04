@@ -11,14 +11,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ControllerManager : MonoBehaviour
 {
 
-    public ControllerDict baseDictLeft;
-    public ControllerDict baseDictRight;
-
     private InputDevice[] _controllers = new InputDevice[2];
     private Animator[] _animators = new Animator[2];
-    
 
-    private GameObject spawnedController;
+
+    private GameObject[] spawnedControllers = new GameObject[2];
     private ControllerDict controllerDict;
 
     public ActionBasedController[] XRControllers;
@@ -27,42 +24,28 @@ public class ControllerManager : MonoBehaviour
     private static readonly int Trigger = Animator.StringToHash("Trigger");
     private static readonly int Grip = Animator.StringToHash("Grip");
 
-    private void Awake()
-    {
-        
-        /*if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;*/
-        DontDestroyOnLoad(gameObject);
-    }
     //private static ControllerManager _instance;
     //public static ControllerManager Instance => _instance;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        controllerDict = baseDictLeft;
-        TryInitialize();
-        controllerDict = baseDictRight;
-        TryInitialize();
+        TryInitialize(0);
+        TryInitialize(1);
+        
         
         //if (controllerDict.controllerType == ControllerType.Brush)
           //  Instantiate(controllerDict.controllerPrefab, transform);
         GameManager.Instance.GameData.controllerManager = this;
     }
 
-    public void TryInitialize()
+    public void TryInitialize(int index)
     {
 
-        //if left controller index = 0 if right = 1 
-        int index = ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&
-                     (controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Left) != 0)? 0 : 1;
-        
+
+        controllerDict = GameManager.Instance.GameData.GetControllerDicts(index);
+        //if(spawnedControllers[index] != null) Destroy(spawnedControllers[index]);
+
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerDict.controllerCharacteristics, devices);
 
@@ -74,13 +57,13 @@ public class ControllerManager : MonoBehaviour
         if (devices.Count > 0)
         {
             _controllers[index] = devices[0];
-            spawnedController = Instantiate(controllerDict.controllerPrefab, XRControllers[index].transform);
+            spawnedControllers[index] = Instantiate(controllerDict.controllerPrefab, XRControllers[index].transform);
 
             //Debug.Log("CONTROLLER HAS ANIMATOR: " + controllerDict.hasAnimator);
             if (controllerDict.hasAnimator)
             {
-                Debug.Log("getting component in object: " + spawnedController.gameObject.name);
-                _animators[index] = spawnedController.GetComponent<Animator>();
+                Debug.Log("getting component in object: " + spawnedControllers[index].gameObject.name);
+                _animators[index] = spawnedControllers[index].GetComponent<Animator>();
                 _isAnimated[index] = true;
             }
 
@@ -88,8 +71,11 @@ public class ControllerManager : MonoBehaviour
             {
                 XRInteractorLineVisual ray =
                     XRControllers[index].GetComponent<XRInteractorLineVisual>();
+                LineRenderer lineRenderer = XRControllers[index].GetComponent<LineRenderer>();
                 ray.enabled = true;
-                //Debug.Log("ray object name is : " + ray.gameObject.name);
+                lineRenderer.enabled = true;
+                Debug.Log("ray object name is : " + ray.gameObject.name);
+                Debug.Log("line renderer object name is : " + ray.gameObject.name);
                 
             }
         }
@@ -98,9 +84,10 @@ public class ControllerManager : MonoBehaviour
     //the dict defines if it's the left or right one that is changed
     public void ChangeController(ControllerDict controllerDict)
     {
-        Debug.Log("CONTROLLER CHANGE");
-        this.controllerDict = controllerDict;
-        TryInitialize();
+        int index = ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&
+                     (controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Left) != 0)? 0 : 1;
+        GameManager.Instance.GameData.SetControllerDict(controllerDict, index);
+        TryInitialize(index);
     }
     void UpdateHandAnimator(int index)
     {
@@ -131,8 +118,8 @@ public class ControllerManager : MonoBehaviour
             //Debug.Log("controller " + i + " is valid: " + _controllers[i].isValid);
             if (!_controllers[i].isValid)
             {
-                Debug.Log("controller " + i + " is invalid, reinit");
-                //TryInitialize();
+                //Debug.Log("controller " + i + " is invalid, reinit");
+                TryInitialize(i);
                 return;
             }
             if (_isAnimated[i]) UpdateHandAnimator(i);

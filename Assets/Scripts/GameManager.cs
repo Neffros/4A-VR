@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
     public EndGameUIManager EndGameUiManager;
     public GameRules GameRules;
     public SoundManager SoundManager;
-
-
+    public ControllerDict baseDictLeft;
+    public ControllerDict baseDictRight;
+    
     private InputDevice device;
 
     public InputDevice Device
@@ -43,10 +44,16 @@ public class GameManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
+       
+    }
+
+    private void Start()
+    {
+        GameData.SetControllerDict(baseDictLeft, 0);
+        GameData.SetControllerDict(baseDictRight, 1);
         SceneManager = new SceneManager();
         SceneManager.LoadScene(4);
     }
-
 
     public void ResetData()
     {

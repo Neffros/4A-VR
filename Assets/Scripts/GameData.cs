@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameData : MonoBehaviour
 {
@@ -12,28 +13,26 @@ public class GameData : MonoBehaviour
     private int _levelsPlayed = 0;
     private bool _leftHand;
     private bool _seated;
-
+    private ControllerDict[] controllerDicts = new ControllerDict[2];
+    
+    
     [HideInInspector] public ControllerManager controllerManager;
-    /*private ControllerManager leftController;
-    private ControllerManager rightController;
 
-    public ControllerManager LeftController
+
+
+    public ControllerDict GetControllerDicts(int index)
     {
-        get => leftController;
-        set => leftController = value;
+        return controllerDicts[index];
+    }
+    public void SetControllerDict(ControllerDict controllerDict, int index)
+    {
+        controllerDicts[index] = controllerDict;
     }
 
-    public ControllerManager RightController
-    {
-        get => rightController;
-        set => rightController = value;
-    }
-*/
     private void Start()
     {
         GameManager.Instance.GameData = this;
         Load();
-        
     }
 
     public int Health
