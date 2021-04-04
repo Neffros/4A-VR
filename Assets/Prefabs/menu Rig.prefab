@@ -1111,8 +1111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d902455a6dd49d4cbaa3476b7a54072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDictLeft: {fileID: 11400000, guid: a4091f78bdba9c840a08e1f1d6dbf1ff, type: 2}
-  baseDictRight: {fileID: 11400000, guid: 57979921958586b489921fce98e7415e, type: 2}
   XRControllers:
   - {fileID: 8533957920438055865}
   - {fileID: 8533957921003461208}

@@ -63,7 +63,8 @@ namespace mazeGame
         {
             GameManager.Instance.GameData.Save();
             GameManager.Instance.SoundManager.Play("selectOption");
-            Application.Quit();
+            SceneManager.LoadScene(4);
+            //Application.Quit();
         }
 
         public void ExitSettings()
