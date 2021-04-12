@@ -14,24 +14,31 @@
           <e p="GameManager.cs" t="Include" />
           <e p="LobbyManager.cs" t="Include" />
           <e p="MazeGame" t="Include">
-            <e p="Bullet.cs" t="Include" />
-            <e p="EndGameUIManager.cs" t="Include" />
-            <e p="EnemySphere.cs" t="Include" />
-            <e p="GameRules.cs" t="Include" />
-            <e p="HitboxDetection.cs" t="Include" />
-            <e p="HitboxPath.cs" t="Include" />
-            <e p="HitboxStart.cs" t="Include" />
-            <e p="LevelManager.cs" t="Include" />
-            <e p="MazeGameData.cs" t="Include" />
-            <e p="MazeGameManager.cs" t="Include" />
-            <e p="MenuManager.cs" t="Include" />
-            <e p="Obstacle.cs" t="Include" />
-            <e p="osef.cs" t="Include" />
-            <e p="Pattern.cs" t="Include" />
-            <e p="platforme.cs" t="Include" />
-            <e p="Player.cs" t="Include" />
-            <e p="sword.cs" t="Include" />
-            <e p="UIManager.cs" t="Include" />
+            <e p="Maze" t="Include">
+              <e p="Bullet.cs" t="Include" />
+              <e p="EnemySphere.cs" t="Include" />
+              <e p="HitboxDetection.cs" t="Include" />
+              <e p="HitboxPath.cs" t="Include" />
+              <e p="HitboxStart.cs" t="Include" />
+              <e p="Obstacle.cs" t="Include" />
+              <e p="Pattern.cs" t="Include" />
+              <e p="platforme.cs" t="Include" />
+            </e>
+            <e p="Player" t="Include">
+              <e p="Player.cs" t="Include" />
+              <e p="sword.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="EndGameUIManager.cs" t="Include" />
+              <e p="MenuManager.cs" t="Include" />
+              <e p="UIManager.cs" t="Include" />
+            </e>
+            <e p="Utility" t="Include">
+              <e p="GameRules.cs" t="Include" />
+              <e p="LevelManager.cs" t="Include" />
+              <e p="MazeGameData.cs" t="Include" />
+              <e p="MazeGameManager.cs" t="Include" />
+            </e>
           </e>
           <e p="Paint" t="Include">
             <e p="Brush2D.cs" t="Include" />
