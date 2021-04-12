@@ -13,12 +13,12 @@ namespace mazeGame
         public TextMeshProUGUI highScoreTxt;
         public TextMeshProUGUI timerTxt;
         public TextMeshProUGUI hpTxt;
-        private GameData _gameData;
+        private MazeGameData _gameData;
 
         private void Start()
         {
-            GameManager.Instance.UiManager = this;
-            _gameData = GameManager.Instance.GameData;
+            MazeGameManager.Instance.UiManager = this;
+            _gameData = MazeGameManager.Instance.GameData;
         }
 
         private void UpdateUI()

@@ -19,7 +19,7 @@ namespace mazeGame
         {
             if (other.gameObject.layer == swordLayer)
             {
-                GameManager.Instance.GameRules.LoseLevel();
+                MazeGameManager.Instance.GameRules.LoseLevel();
             }
         }
 

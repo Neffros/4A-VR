@@ -15,7 +15,8 @@ namespace mazeGame
 
         private Pattern currentPattern;
 
-        private GameManager _gameManager;
+        private MazeGameManager _gameManager;
+        private GameManager _globalGameManager;
 
         private int currentPatternIndex;
         private int _currentPlatformIndex;
@@ -36,8 +37,8 @@ namespace mazeGame
 
             _instance = this;
 
-            _gameManager = GameManager.Instance;
-
+            _gameManager = MazeGameManager.Instance;
+            _globalGameManager = GameManager.Instance;
             if (patternPrefabs.Count <= 0)
             {
                 throw new UnityException("Pas de patterns ...");
@@ -86,7 +87,7 @@ namespace mazeGame
             _currentPlatformIndex = Random.Range(0, platformes.Count);
             currentPatternIndex = Random.Range(0, patternPrefabs.Count);
 
-            Transform targetTransform = _gameManager.GameData.Seated
+            Transform targetTransform = _globalGameManager.GameData.Seated
                 ? platformes[_currentPlatformIndex].seatedSpawnPoint
                 : platformes[_currentPlatformIndex].standingSpawnPoint;
             targetTransform.rotation = rotation;
@@ -99,7 +100,7 @@ namespace mazeGame
 
 
             platformes[_currentPlatformIndex].PlaySource();
-            if (_gameManager.GameData.Seated)
+            if (_globalGameManager.GameData.Seated)
                 currentPattern = Instantiate(patternPrefabs[currentPatternIndex], targetTransform.transform);
             else
                 currentPattern = Instantiate(patternPrefabs[currentPatternIndex], targetTransform.transform);

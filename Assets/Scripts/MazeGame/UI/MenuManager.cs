@@ -26,24 +26,24 @@ namespace mazeGame
         public ControllerDict rightSwordDict;
         private void Start()
         {
-            GameManager.Instance.GameRules.Started = false;
+            MazeGameManager.Instance.GameRules.Started = false;
         }
 
         public void StartGame()
         {
-            GameData gameData = GameManager.Instance.GameData;
-            GameManager.Instance.GameRules.Started = true;
+            GameData globalGameData = GameManager.Instance.GameData;
+            MazeGameManager.Instance.GameRules.Started = true;
             GameManager.Instance.SoundManager.Play("selectOption");
             
-            if (gameData.LeftHand)
+            if (globalGameData.LeftHand)
             {
-                gameData.controllerManager.ChangeController(leftSwordDict);
-                gameData.controllerManager.ChangeController(rightHandDict);
+                globalGameData.controllerManager.ChangeController(leftSwordDict);
+                globalGameData.controllerManager.ChangeController(rightHandDict);
             }
             else
             {
-                gameData.controllerManager.ChangeController(leftHandDict);
-                gameData.controllerManager.ChangeController(rightSwordDict);
+                globalGameData.controllerManager.ChangeController(leftHandDict);
+                globalGameData.controllerManager.ChangeController(rightSwordDict);
             }
 
             SceneManager.LoadScene(2); //TODO change to definitive
@@ -88,4 +88,3 @@ namespace mazeGame
 
     }
 }
-//test

@@ -29,7 +29,7 @@ namespace mazeGame
                 enteredStartZone = false;
                 OnPathExitedEvent();
                 GameManager.Instance.SoundManager.Play("Danger");
-                GameManager.Instance.GameRules.HasCheated = true;
+                MazeGameManager.Instance.GameRules.HasCheated = true;
             }
         }
 

@@ -14,8 +14,8 @@ namespace mazeGame
         private bool _finished;
         private bool _started;
         private bool _Danger;
-        private GameManager _gameManager;
-
+        private MazeGameManager _gameManager;
+        private GameManager _globalGameManager;
         private XRInteractorLineVisual _playerRayVisual;
         private LineRenderer _playerRay;
 
@@ -42,9 +42,9 @@ namespace mazeGame
 
         private void Start()
         {
-            _gameManager = GameManager.Instance;
+            _gameManager = MazeGameManager.Instance;
             _gameManager.GameRules = this;
-
+            _globalGameManager = GameManager.Instance;
             HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
             HitboxDetection.OnPathExitedEvent += OnPathExited;
 
@@ -76,7 +76,7 @@ namespace mazeGame
             _finished = true;
             _playerRay = FindObjectOfType<LineRenderer>();
             _playerRay.enabled = true;
-            _gameManager.SoundManager.Play("gameover");
+            _globalGameManager.SoundManager.Play("gameover");
             _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
             _playerRayVisual.enabled = true;
             _gameManager.LevelManager.Platformes[_gameManager.LevelManager.CurrentPlatformIndex].StopSource();
@@ -153,7 +153,7 @@ namespace mazeGame
 
             _gameManager.GameData.Score++;
             _gameManager.GameData.Timer = 20.0f;
-            _gameManager.SoundManager.Play("success");
+            _globalGameManager.SoundManager.Play("success");
             OnLevelWon?.Invoke();
             Debug.Log("WIN");
             NextLevel();
@@ -171,7 +171,7 @@ namespace mazeGame
             _gameManager.GameData.Health--;
             OnLevelLost?.Invoke();
             //Debug.Log("LOST");
-            _gameManager.SoundManager.Play("fail");
+            _globalGameManager.SoundManager.Play("fail");
             NextLevel();
         }
 

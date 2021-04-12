@@ -19,7 +19,7 @@ namespace mazeGame
         {
             if(other.gameObject.layer == swordLayer)
             {
-                GameManager.Instance.LevelManager.Platformes[GameManager.Instance.LevelManager.CurrentPlatformIndex].StopSource();
+                MazeGameManager.Instance.LevelManager.Platformes[MazeGameManager.Instance.LevelManager.CurrentPlatformIndex].StopSource();
                 hitboxDetection.OnEnteredStartZone();
             }
         }

@@ -46,7 +46,7 @@ namespace mazeGame
                 Debug.Log("hit player!");
                 hitOnce = true;
 
-                GameManager.Instance.GameRules.HitByBullet();
+                MazeGameManager.Instance.GameRules.HitByBullet();
             }
         }
     }

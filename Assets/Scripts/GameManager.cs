@@ -9,22 +9,22 @@ using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    
-    public static GameManager Instance => _instance;
 
-    public LevelManager LevelManager { get; internal set; }
 
     public PauseUIManager pauseUIManager;
-    public UIManager UiManager;
     public GameData GameData;
-    public EndGameUIManager EndGameUiManager;
-    public GameRules GameRules;
     public SoundManager SoundManager;
+    
     public ControllerDict baseDictLeft;
     public ControllerDict baseDictRight;
     
     public Collider sword;
+
+    #region Singleton
+
+    private static GameManager _instance;
+    
+    public static GameManager Instance => _instance;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
        
     }
 
+    #endregion
+
+
     private void Start()
     {
         GameData.SetControllerDict(baseDictLeft, 0);
@@ -46,12 +49,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(4);
     }
 
-    public void ResetData()
-    {
-        GameData.Reset();
-        GameRules.Reset();
 
-    }
     public void EnableSword()
     {
         sword.enabled = true;

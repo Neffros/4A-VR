@@ -31,7 +31,7 @@ namespace mazeGame
         {
             if (other.gameObject.layer == swordLayer)
             {
-                GameManager.Instance.GameRules.WinLevel();
+                MazeGameManager.Instance.GameRules.WinLevel();
             }
         }
 
@@ -44,11 +44,11 @@ namespace mazeGame
                 elapsedTime = 0;
                 if (bulletSpeed < 5)
                 {
-                    if (GameManager.Instance.GameData.Score != 0 && GameManager.Instance.GameData.Score % 5 == 0)
+                    if (MazeGameManager.Instance.GameData.Score != 0 && MazeGameManager.Instance.GameData.Score % 5 == 0)
                         bulletSpeed += 1.0f;
                 }
 
-                if (GameManager.Instance.GameRules.HasCheated)
+                if (MazeGameManager.Instance.GameRules.HasCheated)
                     bulletSpeed *= 1.5f;
 
                 Bullet clone = Instantiate(bulletPrefab);

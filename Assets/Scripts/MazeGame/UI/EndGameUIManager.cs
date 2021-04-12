@@ -17,11 +17,11 @@ namespace mazeGame
 
         public TextMeshProUGUI hiScoreTxt;
 
-        private GameManager _gameManager;
+        private MazeGameManager _gameManager;
 
         private void Start()
         {
-            _gameManager = GameManager.Instance;
+            _gameManager = MazeGameManager.Instance;
             _gameManager.EndGameUiManager = this;
         }
 
@@ -34,7 +34,7 @@ namespace mazeGame
         public void PlayAgain()
         {
        
-            _gameManager.SoundManager.Play("selectOption");
+            GameManager.Instance.SoundManager.Play("selectOption");
             _gameManager.ResetData();
             endGamePanel.SetActive(false);
             SceneManager.LoadScene(2);
@@ -42,14 +42,12 @@ namespace mazeGame
    
         public void ReturnToMainMenu()
         {
-            _gameManager.SoundManager.Play("selectOption");
+            GameManager.Instance.SoundManager.Play("selectOption");
             _gameManager.ResetData();
             endGamePanel.SetActive(false);
             SceneManager.LoadScene(1);
         }
    
-    
-    
     }
 
 }
