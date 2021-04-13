@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ToolTarget : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
