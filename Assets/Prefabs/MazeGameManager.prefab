@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 217809786034732529}
-  - component: {fileID: 1871532258080878804}
   - component: {fileID: 7581506023846938861}
   - component: {fileID: 3813489613166994432}
+  - component: {fileID: 7485043790315293402}
   m_Layer: 0
   m_Name: MazeGameManager
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1871532258080878804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536894804181658380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b208c96013f31404db9c32815bb05d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerManager: {fileID: 0}
 --- !u!114 &7581506023846938861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,5 +59,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameRules: {fileID: 0}
   EndGameUiManager: {fileID: 0}
-  GameData: {fileID: 0}
+  GameData: {fileID: 7485043790315293402}
   UiManager: {fileID: 0}
+--- !u!114 &7485043790315293402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536894804181658380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290d4b024c8bac945b525c684b2d6e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,7 +26,6 @@ public class GameData : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.GameData = this;
         Load();
     }
 
