@@ -1,0 +1,196 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Resources;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
+namespace mazeGame
+{
+    public class GameRules : MonoBehaviour
+    {
+
+        private bool _playerLost;
+        private bool _finished;
+        private bool _started;
+        private bool _Danger;
+        private MazeGameManager _gameManager;
+        private GameManager _globalGameManager;
+        private XRInteractorLineVisual _playerRayVisual;
+        private LineRenderer _playerRay;
+
+        public delegate void Response();
+
+        public static event Response OnNextLevel;
+        public static event Response OnLevelLost;
+        public static event Response OnLevelWon;
+
+        private bool enteredZone;
+        private bool _hasCheated;
+
+        public bool HasCheated
+        {
+            get => _hasCheated;
+            set => _hasCheated = value;
+        }
+
+        public bool Started
+        {
+            get => _started;
+            set => _started = value;
+        }
+
+        private void Start()
+        {
+            _gameManager = MazeGameManager.Instance;
+            _gameManager.GameRules = this;
+            _globalGameManager = GameManager.Instance;
+            HitboxDetection.OnStartZoneEntered += OnStartZoneEntered;
+            HitboxDetection.OnPathExitedEvent += OnPathExited;
+
+        }
+
+        private bool startShooting;
+
+        private void OnPathExited()
+        {
+            enteredZone = false;
+            startShooting = true;
+        }
+
+        private void Shoot()
+        {
+            Player player = FindObjectOfType<Player>();
+            _gameManager.LevelManager.enemySphere.ShootPlayer(player.ShootTarget.position);
+        }
+
+        private void OnStartZoneEntered()
+        {
+            //Debug.Log("StartZone entered");
+            enteredZone = true;
+        }
+
+        private void Endgame()
+        {
+            _playerLost = false;
+            _finished = true;
+            _playerRay = FindObjectOfType<LineRenderer>();
+            _playerRay.enabled = true;
+            _globalGameManager.SoundManager.Play("gameover");
+            _playerRayVisual = FindObjectOfType<XRInteractorLineVisual>();
+            _playerRayVisual.enabled = true;
+            _gameManager.LevelManager.Platformes[_gameManager.LevelManager.CurrentPlatformIndex].StopSource();
+            if (_gameManager.GameData.Score >= _gameManager.GameData.HighScore)
+                _gameManager.GameData.HighScore = _gameManager.GameData.Score;
+
+            _gameManager.GameData.Save();
+            _gameManager.EndGameUiManager.endGamePanel.SetActive(true);
+            _gameManager.EndGameUiManager.UpdateScore();
+            _gameManager.LevelManager.DestroyLevel();
+            //do stuff
+        }
+
+        private void Update()
+        {
+            if (_finished) return;
+            if (_playerLost)
+            {
+                _finished = true;
+                Endgame();
+                return;
+            }
+
+            if (_gameManager.GameData.Timer <= 2.0f && !_Danger)
+            {
+                GameManager.Instance.SoundManager.Play("Danger");
+                _Danger = true;
+            }
+
+            if (_gameManager.GameData.Timer <= 0 || startShooting)
+            {
+                Shoot();
+            }
+
+            if (_gameManager.GameData.Health == 0)
+            {
+                _playerLost = true;
+            }
+        }
+
+        public void HitByBullet()
+        {
+            enteredZone = true;
+            LoseLevel();
+        }
+
+        public void NextLevel()
+        {
+            _gameManager.GameData.LevelsPlayed++;
+            enteredZone = false;
+            startShooting = false;
+
+            if (_gameManager.GameData.Score != 0 && _gameManager.GameData.Score % 5 == 0) //every 5 levels won, win 1hp
+            {
+                _gameManager.GameData.Health++;
+            }
+
+            _gameManager.GameData.Timer = 20.0f - _gameManager.GameData.Score / 2;
+            if (_gameManager.GameData.Timer < 10.0f)
+                _gameManager.GameData.Timer = 10.0f;
+            _Danger = false;
+
+            _gameManager.LevelManager.NextPattern();
+            OnNextLevel?.Invoke();
+        }
+
+        public void WinLevel()
+        {
+            if (!enteredZone)
+            {
+                Debug.Log("Le joueur n'est pas passé par l'entrée ! (WIN)");
+                return;
+            }
+
+            _gameManager.GameData.Score++;
+            _gameManager.GameData.Timer = 20.0f;
+            _globalGameManager.SoundManager.Play("success");
+            OnLevelWon?.Invoke();
+            Debug.Log("WIN");
+            NextLevel();
+        }
+
+        public void LoseLevel()
+        {
+
+            if (!enteredZone)
+            {
+                //Debug.Log("Le joueur n'est pas passé par l'entrée ! (LOST)");
+                return;
+            }
+
+            _gameManager.GameData.Health--;
+            OnLevelLost?.Invoke();
+            //Debug.Log("LOST");
+            _globalGameManager.SoundManager.Play("fail");
+            NextLevel();
+        }
+
+        public void Reset()
+        {
+            _playerLost = false;
+            _finished = false;
+        }
+
+        public bool PlayerLost
+        {
+            get => _playerLost;
+            set => _playerLost = value;
+        }
+
+        public bool Finished
+        {
+            get => _finished;
+            set => _finished = value;
+        }
+    }
+}
