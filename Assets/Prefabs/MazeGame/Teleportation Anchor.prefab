@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seatedSpawnPoint: {fileID: 3439359493910089289}
-  standingSpawnPoint: {fileID: 3125217562118600686}
+  standingSpawnPoint: {fileID: 3439359493910089289}
   spawnAudio: {fileID: 2908575274903523642}
 --- !u!114 &8908132433238701586
 MonoBehaviour:
