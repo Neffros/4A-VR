@@ -60,3 +60,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore the auto-generated AOT compatibility dll.
+/Assets/__PGSauce/_Vendor/Sirenix/Assemblies/AOT/*
+
+# Ignore all unpacked demos.
+/Assets/__PGSauce/_Vendor/Sirenix/Demos/*
+
+# But keep the demo packages themselves.
+!/Assets/__PGSauce/_Vendor/Sirenix/Demos/*.unitypackage 
