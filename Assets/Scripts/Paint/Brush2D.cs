@@ -6,6 +6,7 @@ public class Brush2D : Tool
 {
     public override void ApplyEffect(ToolTarget target)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("not yet implemented");
+        //throw new System.NotImplementedException();
     }
 }

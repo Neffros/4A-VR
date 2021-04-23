@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         GameData.SetControllerDict(baseDictLeft, 0);
         GameData.SetControllerDict(baseDictRight, 1);
-        SceneManager.LoadScene(4);
+        if(SceneManager.GetActiveScene().buildIndex  == 0) SceneManager.LoadScene(4);
     }
 
 

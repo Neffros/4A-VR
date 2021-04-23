@@ -5,7 +5,7 @@
         _MainTex ("Texture", 2D) = "white" {}
         //_Touched (boolean and such list)
         //_newColor ("get color of it")
-        _position("Position", Vector) = (.0, .0, .0)
+        _Position("Position", Vector) = (.0, .0, .0, .0)
         _appliedColor("_appliedColor", Color) = (1,1,1,1)
         [MaterialToggle] _isToggled("isToggle", Float) = 0
     }
@@ -39,7 +39,7 @@
 
             };
 
-            uniform float3 _Position;
+            uniform float4 _Position;
             sampler2D _MainTex;
             float4 _MainTex_ST;
             int _positionsCount = 50;
@@ -56,15 +56,16 @@
                 UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
-
+ 
             fixed4 frag (v2f i) : SV_Target
             {
+                
                 fixed4 col = tex2D(_MainTex, i.uv);
                 for(int j = 0; j < _positionsCount; i++)
                 {
                     if(_positions[j] != i.worldPos)
                     {
-                        col = tex2D(_appliedColor, i.uv);
+                        col = _appliedColor;
                         break;
                     }
                 }
