@@ -25,7 +25,6 @@ namespace paint
             brush = gameData.controllerManager.Controllers[1];
             leftController = gameData.controllerManager.Controllers[0];
             //gameData.LeftHand ? gameData.controllerManager.Controllers[0] : gameData.controllerManager.Controllers[1]; //TODO CHANGE BASED ON MAIN HAND SETTING
-
         }
 
         // Update is called once per frame
