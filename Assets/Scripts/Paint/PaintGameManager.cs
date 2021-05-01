@@ -81,6 +81,7 @@ namespace Paint
             paintMaterial.SetFloat(_radiusID, radius);
             paintMaterial.SetTexture(_textureID, support);
             paintMaterial.SetColor(_colorID, color ?? Color.red);
+            
             //extendMaterial.SetFloat(_uvOffsetID, toolTarget.extendsIslandOffset);
             //extendMaterial.SetTexture(uvIslandsID, uvIslands);
 
