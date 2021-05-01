@@ -172,8 +172,8 @@ namespace Grabbit
                 var tempInsts = Resources.FindObjectsOfTypeAll<GrabbitEditor>();
                 if (tempInsts.Length > 0) instance = tempInsts[0];
 
-                EditorTools.activeToolChanged -= CheckForGrabbit;
-                EditorTools.activeToolChanged += CheckForGrabbit;
+                ToolManager.activeToolChanged -= CheckForGrabbit;
+                ToolManager.activeToolChanged += CheckForGrabbit;
 
                 if (instance)
                     return;
@@ -185,12 +185,12 @@ namespace Grabbit
 
         public static void DisableGrabbitToolChangeChecks()
         {
-            EditorTools.activeToolChanged -= CheckForGrabbit;
+            ToolManager.activeToolChanged -= CheckForGrabbit;
         }
 
         private static void CheckForGrabbit()
         {
-            if (EditorTools.activeToolType == typeof(GrabbitTool))
+            if (ToolManager.activeToolType == typeof(GrabbitTool))
             {
                 if (instance.CurrentTool)
                 {
@@ -292,13 +292,13 @@ namespace Grabbit
                 CheckPauseMode();
             }
 
-            if (EditorTools.activeToolType == typeof(GrabbitTool))
+            if (ToolManager.activeToolType == typeof(GrabbitTool))
             {
                 SceneView.lastActiveSceneView.Focus();
             }
             else
             {
-                EditorTools.SetActiveTool(instance.CurrentTool);
+                ToolManager.SetActiveTool(instance.CurrentTool);
             }
 
             instance.Repaint();
@@ -339,7 +339,7 @@ namespace Grabbit
 
         public static void RestartGrabbit()
         {
-            EditorTools.RestorePreviousPersistentTool();
+            ToolManager.RestorePreviousPersistentTool();
             Selection.objects = new Object[0];
             // CurrentTool.OnDisable();
             StartGrabbit(GrabbitMode.PLACE, false);
@@ -375,7 +375,7 @@ namespace Grabbit
             }
 
 
-            if (EditorTools.activeToolType != typeof(GrabbitTool))
+            if (ToolManager.activeToolType != typeof(GrabbitTool))
             {
                 InactiveGrabbitGUI();
                 return;
