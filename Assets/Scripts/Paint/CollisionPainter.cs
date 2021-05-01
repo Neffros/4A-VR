@@ -8,6 +8,7 @@ public class CollisionPainter : MonoBehaviour{
     public float hardness = 1;
 
     private void OnCollisionStay(Collision other) {
+        Debug.Log("paint color is:" + paintColor);
         Paintable p = other.collider.GetComponent<Paintable>();
         if(p != null){
             Vector3 pos = other.contacts[0].point;
