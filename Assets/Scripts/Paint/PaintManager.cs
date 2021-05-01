@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -5,6 +6,9 @@ public class PaintManager : Singleton<PaintManager>{
 
     public Shader texturePaint;
     public Shader extendIslands;
+
+    public ControllerDict lefthand;
+    public ControllerDict righthand;
 
     int prepareUVID = Shader.PropertyToID("_PrepareUV");
     int positionID = Shader.PropertyToID("_PainterPosition");
@@ -50,6 +54,12 @@ public class PaintManager : Singleton<PaintManager>{
         command.Clear();
     }
 
+
+    private void Start()
+    {
+        GameManager.Instance.GameData.controllerManager.ChangeController(lefthand);
+        GameManager.Instance.GameData.controllerManager.ChangeController(righthand);
+    }
 
     public void paint(Paintable paintable, Vector3 pos, float radius = 1f, float hardness = .5f, float strength = .5f, Color? color = null)
     {
