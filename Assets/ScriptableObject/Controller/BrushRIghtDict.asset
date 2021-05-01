@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllerCharacteristics: 576
   controllerType: 3
-  controllerPrefab: {fileID: 5062852182155526896, guid: df9a685edf2d5a44ba9ba1ad6c182aa6,
+  controllerPrefab: {fileID: 4187178135158915703, guid: 6a928d1b64580fc459759603655c0c1c,
     type: 3}
   hasAnimator: 0
   hasRayInteractor: 0

@@ -15,14 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MazeGameScene.unity
     guid: e367bff2d43eb7d40b3e627094b870c7
   - enabled: 1
-    path: Assets/Scenes/Paint.unity
-    guid: 3f35fbd2ba3d06041a17d77be0dc43fd
-  - enabled: 1
     path: Assets/Scenes/LevelLobby.unity
     guid: b038426b6939103488b20cce0c121e85
   - enabled: 1
-    path: Assets/Scenes/Paint TNTC.unity
-    guid: df17bb02999771a45948c56ed8e85383
+    path: Assets/Scenes/Paint.unity
+    guid: 56a98e131a2603d4b94abce579d289ce
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
