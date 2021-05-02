@@ -114,13 +114,6 @@ public class ControllerManager : MonoBehaviour
         }
     }
 
-
-    public void InitMarker(MarkerDict markerDict)
-    {
-        Material mat = markerDict.controllerPrefab.GetComponent<MeshRenderer>().material;
-        mat = markerDict.material;
-        markerDict.controllerPrefab.GetComponent<CollisionPainter>().paintColor = mat.color;
-    }
     public int GetIndexFromDict(ControllerDict controllerDict)
     {
         return ((controllerDict.controllerCharacteristics & InputDeviceCharacteristics.Controller) != 0 &&

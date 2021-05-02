@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542493535b55bcc4392007c3c7c9d0e8, type: 3}
   m_Name: MarkerDict
   m_EditorClassIdentifier: 
-  controllerCharacteristics: 0
-  controllerType: 0
-  controllerPrefab: {fileID: 0}
+  controllerCharacteristics: 64
+  controllerType: 3
+  controllerPrefab: {fileID: 5062852182155526896, guid: df9a685edf2d5a44ba9ba1ad6c182aa6,
+    type: 3}
   hasAnimator: 0
   hasRayInteractor: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  ControllerDict: {fileID: 0}
+  material: {fileID: 2100000, guid: a31bb071a9fd7c544851027d4ed57013, type: 2}
