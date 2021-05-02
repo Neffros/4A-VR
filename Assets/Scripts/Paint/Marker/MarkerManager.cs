@@ -26,26 +26,6 @@ public class MarkerManager : MonoBehaviour
     }
     public void OnMarkerInteract(XRBaseInteractable interactable)
     {
-        Debug.Log("changing marker");
-        _markerInteractor = interactable.GetComponent<MarkerInteractor>();
 
-        if (!_markerInteractor) return;
-        
-        //_markerInteractor.leftMarker.controllerPrefab.
-        
-        if (_index == 0)
-        {
-            
-            _markerInteractor.leftMarker.controllerCharacteristics &= ~InputDeviceCharacteristics.Left;
-            _markerInteractor.leftMarker.controllerCharacteristics |= InputDeviceCharacteristics.Right;
-            //_markerInteractor.leftMarker;
-            _controllerManager.InitMarker(_markerInteractor.leftMarker);
-            _controllerManager.ChangeController(_markerInteractor.leftMarker);
-        }
-        else
-        {
-            _controllerManager.InitMarker(_markerInteractor.rightMarker);
-            _controllerManager.ChangeController(_markerInteractor.rightMarker);
-        }
     }
 }

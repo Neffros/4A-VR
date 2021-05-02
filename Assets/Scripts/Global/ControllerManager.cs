@@ -46,7 +46,11 @@ public class ControllerManager : MonoBehaviour
 
 
         controllerDict = GameManager.Instance.GameData.GetControllerDicts(index);
-        //if(spawnedControllers[index] != null) Destroy(spawnedControllers[index]);
+        if (spawnedControllers[index])
+        {
+            Debug.Log("destroying controller");
+            Destroy(spawnedControllers[index]);
+        }
 
         List<InputDevice> devices = new List<InputDevice>();
         InputDevices.GetDevicesWithCharacteristics(controllerDict.controllerCharacteristics, devices);
