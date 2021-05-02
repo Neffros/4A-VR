@@ -283,6 +283,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 8454088846946332598, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_RaycastTriggerInteraction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e47cf9558c18e64ea9e57fbec97dc8f, type: 3}
 --- !u!1 &599031059

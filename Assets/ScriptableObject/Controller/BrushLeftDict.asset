@@ -17,4 +17,4 @@ MonoBehaviour:
   controllerPrefab: {fileID: 5062852182155526896, guid: df9a685edf2d5a44ba9ba1ad6c182aa6,
     type: 3}
   hasAnimator: 0
-  hasRayInteractor: 0
+  hasRayInteractor: 1
