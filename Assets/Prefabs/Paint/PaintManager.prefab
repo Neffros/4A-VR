@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4248178205168761639
+--- !u!1 &4028256242893661434
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4248178205168761637}
-  - component: {fileID: 4248178205168761638}
+  - component: {fileID: 4028256242893661432}
+  - component: {fileID: 4028256242893661433}
   m_Layer: 0
   m_Name: PaintManager
   m_TagString: Untagged
@@ -17,31 +17,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4248178205168761637
+--- !u!4 &4028256242893661432
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248178205168761639}
+  m_GameObject: {fileID: 4028256242893661434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8693695, y: 4.6753078, z: 8.383554}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4248178205168761638
+--- !u!114 &4028256242893661433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4248178205168761639}
+  m_GameObject: {fileID: 4028256242893661434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72068b7a8bd2aa74bbc416a4ee70715a, type: 3}
+  m_Script: {fileID: 11500000, guid: 97807551a49343d4a84e6d24e81cff4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brushDict: {fileID: 11400000, guid: d07b80b463c134344b65b3d93a9980d8, type: 2}
-  cube: {fileID: 0}
+  texturePaint: {fileID: 4800000, guid: 9472ed3696ab33d4ab23fb2a11915e0c, type: 3}
+  extendIslands: {fileID: 4800000, guid: 30512f6167fa0784ab310b688406279d, type: 3}
+  lefthand: {fileID: 11400000, guid: d07b80b463c134344b65b3d93a9980d8, type: 2}
+  righthand: {fileID: 11400000, guid: 33532c703a2e4284991c407cdfbd143f, type: 2}
