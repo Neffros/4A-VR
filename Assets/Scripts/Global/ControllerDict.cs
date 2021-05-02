@@ -12,13 +12,7 @@ public enum ControllerType
     Controller,
     Brush
 };
-/*
-[Serializable]
-public class ControllerDict : MonoBehaviour
-{ 
-    public ControllerType controllerType;
-    public GameObject controllerPrefab;
-}*/
+
 
 
 [CreateAssetMenu(fileName = "ControllerDict", menuName = "ScriptableObject/ControllerDict")]

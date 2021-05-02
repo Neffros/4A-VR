@@ -7,5 +7,5 @@ using UnityEngine;
 public class MarkerDict : ControllerDict
 {
     public Color color;
-    public ControllerDict ControllerDict;
+    public Material material;
 }

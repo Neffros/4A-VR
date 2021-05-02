@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470841307f294374baa156339cbd23c9, type: 3}
+  m_Name: PurpleMarkerLeft
+  m_EditorClassIdentifier: 
+  controllerCharacteristics: 320
+  controllerType: 3
+  controllerPrefab: {fileID: 5062852182155526896, guid: df9a685edf2d5a44ba9ba1ad6c182aa6,
+    type: 3}
+  hasAnimator: 0
+  hasRayInteractor: 1
