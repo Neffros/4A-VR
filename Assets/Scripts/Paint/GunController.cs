@@ -20,9 +20,9 @@ public class GunController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject instance = Instantiate(bullet);
+        GameObject instance = Instantiate(bullet, transform);
         Rigidbody rb = instance.GetComponent<Rigidbody>();
-        playerDirection = GameManager.Instance.GameData.controllerManager.gameObject.transform.forward;
+        playerDirection = GameManager.Instance.GameData.controllerManager.vrCamera.transform.forward;
         rb.AddForce(playerDirection * speed, ForceMode.VelocityChange);
     }
     private void Update()
