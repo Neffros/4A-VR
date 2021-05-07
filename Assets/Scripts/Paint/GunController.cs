@@ -9,23 +9,32 @@ public class GunController : MonoBehaviour
 {
     public float shootFrequency;
     public float speed;
-    public Color bulletColor;
     public GameObject bullet;
     public float bulletScale;
     private InputDevice controller;
     public Transform shootTransform;
     private Vector3 playerDirection = new Vector3();
     private float elapsedTime = 0.5f;
+    private bool gunIsGrabbed;
     
     private void Start()
     {
-        bullet.GetComponent<CollisionPainter>().paintColor = bulletColor;
+        //bullet.GetComponent<CollisionPainter>().paintColor = bulletColor;
+        //bullet.GetComponent<MeshRenderer>().material.color = bulletColor;
         shootTransform.localScale = new Vector3(bulletScale, bulletScale, bulletScale);
     }
 
-    public void OnInteract(int index)
+    public void OnGunSelect()
     {
-        controller = GameManager.Instance.GameData.controllerManager.Controllers[index];
+        controller = GameManager.Instance.GameData.controllerManager.Controllers[PaintManager.instance.ControllerIndex];
+        Debug.Log(gameObject.name + " grabbed");
+        gunIsGrabbed = true;
+    }
+
+    public void OnGunExit()
+    {
+        Debug.Log(gameObject.name + " dropped");
+        gunIsGrabbed = false;
     }
 
     private void Shoot()
@@ -39,11 +48,11 @@ public class GunController : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-
+        if (!gunIsGrabbed) return;
         controller.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
         if (triggerValue > 0.5f && shootFrequency <= elapsedTime)
         {
-            Debug.Log("shooting");
+            Debug.Log("shoot");
             Shoot();
             elapsedTime = 0f;
         }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5907165569097323633}
   - component: {fileID: 5907165569097323632}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Green Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a31bb071a9fd7c544851027d4ed57013, type: 2}
+  - {fileID: 2100000, guid: 8821d90c583443a40b5be3aa0fc87af5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be8a48416f841d4fac024c4f1994147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: {r: 0.6869727, g: 0.08962262, b: 1, a: 1}
-  radius: 0.1
-  strength: 0.3
-  hardness: 0.3
+  paintColor: {r: 0, g: 1, b: 0.15945768, a: 1}
+  radius: 1
+  strength: 1
+  hardness: 1
 --- !u!54 &5907165569097323632
 Rigidbody:
   m_ObjectHideFlags: 0

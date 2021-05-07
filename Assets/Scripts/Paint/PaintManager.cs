@@ -10,6 +10,8 @@ public class PaintManager : Singleton<PaintManager>{
     public ControllerDict lefthand;
     public ControllerDict righthand;
 
+    private int controllerIndex;
+
     int prepareUVID = Shader.PropertyToID("_PrepareUV");
     int positionID = Shader.PropertyToID("_PainterPosition");
     int hardnessID = Shader.PropertyToID("_Hardness");
@@ -35,6 +37,17 @@ public class PaintManager : Singleton<PaintManager>{
         command.name = "CommmandBuffer - " + gameObject.name;
     }
 
+    public int ControllerIndex
+    {
+        get => controllerIndex;
+        set => controllerIndex = value;
+    }
+
+    public void SetControllerIndex(int index)
+    {
+        controllerIndex = index;
+    }
+    
     public void initTextures(Paintable paintable){
         RenderTexture mask = paintable.getMask();
         RenderTexture uvIslands = paintable.getUVIslands();
