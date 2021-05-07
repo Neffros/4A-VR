@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class GunController : MonoBehaviour
 {
     public float shootFrequency;
     public float speed;
+    public Color bulletColor;
     public GameObject bullet;
     public float bulletScale;
     private InputDevice controller;
@@ -17,8 +19,13 @@ public class GunController : MonoBehaviour
     
     private void Start()
     {
-        controller = GameManager.Instance.GameData.controllerManager.Controllers[0];
+        bullet.GetComponent<CollisionPainter>().paintColor = bulletColor;
         shootTransform.localScale = new Vector3(bulletScale, bulletScale, bulletScale);
+    }
+
+    public void OnInteract(int index)
+    {
+        controller = GameManager.Instance.GameData.controllerManager.Controllers[index];
     }
 
     private void Shoot()
