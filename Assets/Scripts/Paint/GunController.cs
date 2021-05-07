@@ -9,14 +9,16 @@ public class GunController : MonoBehaviour
     public float shootFrequency;
     public float speed;
     public GameObject bullet;
+    public float bulletScale;
     private InputDevice controller;
     public Transform shootTransform;
     private Vector3 playerDirection = new Vector3();
     private float elapsedTime = 0.5f;
-
+    
     private void Start()
     {
         controller = GameManager.Instance.GameData.controllerManager.Controllers[0];
+        shootTransform.localScale = new Vector3(bulletScale, bulletScale, bulletScale);
     }
 
     private void Shoot()
@@ -24,7 +26,7 @@ public class GunController : MonoBehaviour
         GameObject instance = Instantiate(bullet, shootTransform);
         Rigidbody rb = instance.GetComponent<Rigidbody>();
         //playerDirection = GameManager.Instance.GameData.controllerManager.vrCamera.transform.forward;
-        playerDirection = transform.forward;
+        playerDirection = shootTransform.forward;
         rb.AddForce(playerDirection * speed, ForceMode.VelocityChange);
     }
     private void Update()
