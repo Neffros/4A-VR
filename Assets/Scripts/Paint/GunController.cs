@@ -12,6 +12,7 @@ public class GunController : MonoBehaviour
     private InputDevice controller;
     public Transform shootTransform;
     private Vector3 playerDirection = new Vector3();
+    private float elapsedTime = 0.5f;
 
     private void Start()
     {
@@ -28,12 +29,14 @@ public class GunController : MonoBehaviour
     }
     private void Update()
     {
-        
+        elapsedTime += Time.deltaTime;
+
         controller.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-        if (triggerValue > 0.5f)
+        if (triggerValue > 0.5f && shootFrequency <= elapsedTime)
         {
             Debug.Log("shooting");
             Shoot();
+            elapsedTime = 0f;
         }
     }
 }
