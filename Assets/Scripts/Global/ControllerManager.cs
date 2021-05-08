@@ -137,7 +137,14 @@ public class ControllerManager : MonoBehaviour
         _controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool paused);
         if (paused)
             GameManager.Instance.pauseUIManager.OnPause();    
-        
+        _controllers[1].TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 stickVal);
+        if (stickVal.x > 0.8f)
+        {
+            var transform1 = vrCamera.transform;
+            var rotation = transform1.rotation;
+            rotation = new Quaternion(rotation.x,rotation.y+90f,rotation.z,rotation.w );
+            transform1.rotation = rotation;
+        }
         /*_controller.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonValue);
         if (primaryButtonValue)
             Debug.Log("pressing main button in right controller");
