@@ -14,7 +14,6 @@ public enum ControllerType
 };
 
 
-
 [CreateAssetMenu(fileName = "ControllerDict", menuName = "ScriptableObject/ControllerDict")]
 public class ControllerDict : ScriptableObject
 {
