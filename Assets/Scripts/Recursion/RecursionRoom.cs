@@ -9,30 +9,48 @@ namespace Recursion
 {
     public class RecursionRoom : MonoBehaviour
     {
-
+        public MeshRenderer floor;
         public List<GameObject> movableObjects = new List<GameObject>();
-        public GameObject floorObject;
         public delegate void ChildHandler(GameObject child);
+        
+        private RecursionGameManager _recursionManager;
 
 
-        private float _yScaleFloor;
-
-        public float YScaleFloor => _yScaleFloor;
-
-        public bool isMainRoom;
         // Start is called before the first frame update
         void Start()
         {
-            if (isMainRoom) RecursionGameManager.Instance.MainRoom = this;
-            else return;
-            GetMovableChildObjects(gameObject,delegate(GameObject child) {  },movableObjects, true);
-            _yScaleFloor = floorObject.transform.localScale.y;
+            
+            _recursionManager = RecursionGameManager.Instance;
+
+            /*GetMovableChildObjects(gameObject,delegate(GameObject child) {  },movableObjects, true);
             foreach (var mov in movableObjects)
             {
                 Debug.Log(mov.name);
+            }*/
+        }
+        
+        public void OnInteractObject(int index) //sphere = 0 cube = 1
+        {
+            _recursionManager.SetTargetObjectInList(movableObjects[index], index);
+        }
+        private void FollowMovableObjects()
+        {
+            for (int i = 0; i < movableObjects.Count; i++)
+            {
+                movableObjects[i].transform.localPosition = _recursionManager.MovableTargetObjects[i].transform.localPosition;
             }
         }
+        
+        
+        private void Update()
+        {
+            FollowMovableObjects();
+        }
 
+        public void SetFloorMaterial(Material mat)
+        {
+            floor.material = mat;
+        }
 
         private static List<GameObject> GetMovableChildObjects(GameObject gameObject, ChildHandler childHandler, List<GameObject> movableObjects, bool recursion)
         {

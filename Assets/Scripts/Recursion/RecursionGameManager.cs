@@ -10,17 +10,17 @@ namespace Recursion
     {
 
         private RecursionRoom mainRoom;
+        private List<RecursionRoom> _rooms = new List<RecursionRoom>();
+        private List<GameObject> movableTargetObjects = new List<GameObject>();
         public RecursionRoom prefab;
-        public List<RecursionRoom> rooms;
-        public Vector3 offset;
-        public float scale;
         public Material mainFloorMaterial;
+
         [SerializeField] private int biggerComplexity;
-        
         [SerializeField] private int smallerComplexity;
 
-        [SerializeField] private float scaleValue;
-        private bool _generated;
+        public Vector3 offset;
+        public float scale;
+        
         #region Singleton
 
 
@@ -49,67 +49,47 @@ namespace Recursion
             set => mainRoom = value;
         }
 
+        public List<GameObject> MovableTargetObjects => movableTargetObjects;
+
+        public void SetTargetObjectInList(GameObject newTarget, int index)
+        {
+            movableTargetObjects[index] = newTarget;
+        }
+
         #endregion
         // Start is called before the first frame update
 
-
-        public void GenerateSmallerLevels(int complexity) //TODO find formula for decreasing scale 
+        private void Start()
         {
-            GameObject newRoom;
-            Vector3 newScale;
-            Transform newTransform;
-            newScale = mainRoom.transform.localScale;
-
-            for (int i = 0; i < complexity; i++)
+            GameObject parent = this.gameObject;
+            int totalOfRooms = biggerComplexity + smallerComplexity + 1;
+            for (int i = 0; i < totalOfRooms; i++)
             {
-                newRoom = Instantiate(mainRoom.gameObject);
-                newRoom.name = "smaller room " + i;
-                newScale.x = newScale.x / -scaleValue <= 0 ? 0.1f : newScale.x / -scaleValue;
-                newScale.y = newScale.y / -scaleValue <= 0 ? 0.1f : newScale.y / -scaleValue;
-                newScale.z = newScale.z / -scaleValue <= 0 ? 0.1f : newScale.z / -scaleValue;
-                //newScale.x /= -scaleValue;
-                //newScale.y /= -scaleValue;
-                //newScale.z /= -scaleValue;
-                newRoom.transform.localScale = newScale;
+                RecursionRoom currentRoom = Instantiate(prefab, parent.transform);
+                var transform1 = currentRoom.transform;
+                Vector3 pos = transform1.localPosition;
+                pos += offset;
+                transform1.localPosition = pos;
+                transform1.localScale = Vector3.one * scale;
+                parent = currentRoom.gameObject;
+                _rooms.Add(currentRoom);
             }
-        }
+            //big 2 main 2 small
+            //scale offset of 0.5
+            // 1 0.5 0.25 0.125 ...
+            //       ----
+            // 4  2   1    0.5
         
-        public void GenerateBiggerLevels(int complexity)
-        {
-            GameObject newRoom;
-            Vector3 newScale;
-            Transform newTransform;
-            newScale = mainRoom.transform.localScale;
-            Vector3 currentFloorScale;
-            for (int i = 0; i < complexity; i++)
-            {
-                newRoom = Instantiate(mainRoom.gameObject);
-                
-     
-                newRoom.name = "bigger room " + i;
-                
-                newScale.x *= scaleValue;
-                newScale.y *= scaleValue;
-                newScale.z *= scaleValue;
-                
-                //keeping Y value of floor 
-                currentFloorScale = newRoom.GetComponent<RecursionRoom>().floorObject.transform.localScale;
-                Debug.Log("y of main floor" + mainRoom.YScaleFloor);
-                //newRoom.GetComponent<RecursionRoom>().floorObject.transform.localScale = 
-                //    new Vector3(currentFloorScale.x, mainRoom.YScaleFloor, currentFloorScale.z);
-
-                newRoom.transform.localScale = newScale;
-            }
-        }
-        // Update is called once per frame
-        void Update()
-        {
-            
-            if (_generated) return;
-            if (mainRoom == null) return;
-            GenerateSmallerLevels(smallerComplexity);
-            GenerateBiggerLevels(biggerComplexity);
-            _generated = true;
+            // 1 0.5 0.25 0.125 ...
+            //             ----
+            // 8  4   2    1 
+            float fixedScale = Mathf.Pow((1 / 0.5f),biggerComplexity+1);
+            _rooms[0].transform.localScale *= fixedScale;
+            mainRoom = _rooms[biggerComplexity];
+            mainRoom.SetFloorMaterial(mainFloorMaterial);
+            Debug.Log(mainRoom.transform.lossyScale);
+            mainRoom.name = "Main Room";
+            movableTargetObjects = mainRoom.movableObjects;
         }
     }
 
