@@ -38,6 +38,7 @@ namespace Recursion
             for (int i = 0; i < movableObjects.Count; i++)
             {
                 movableObjects[i].transform.localPosition = _recursionManager.MovableTargetObjects[i].transform.localPosition;
+                movableObjects[i].transform.localRotation = _recursionManager.MovableTargetObjects[i].transform.localRotation;
             }
         }
         
