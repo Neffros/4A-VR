@@ -15,6 +15,9 @@ namespace Recursion
         public RecursionRoom prefab;
         public Material mainFloorMaterial;
 
+        public GameObject vrBody;
+        public GameObject leftHand;
+        public GameObject rightHand;
         [SerializeField] private int biggerComplexity;
         [SerializeField] private int smallerComplexity;
 
@@ -89,7 +92,11 @@ namespace Recursion
             mainRoom.SetFloorMaterial(mainFloorMaterial);
             Debug.Log(mainRoom.transform.lossyScale);
             mainRoom.name = "Main Room";
+            
             movableTargetObjects = mainRoom.movableObjects;
+            SetTargetObjectInList(vrBody, 2);
+            SetTargetObjectInList(leftHand, 3);
+            SetTargetObjectInList(rightHand, 4);
         }
     }
 

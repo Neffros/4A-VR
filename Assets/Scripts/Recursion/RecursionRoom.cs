@@ -19,9 +19,7 @@ namespace Recursion
         // Start is called before the first frame update
         void Start()
         {
-            
             _recursionManager = RecursionGameManager.Instance;
-
             /*GetMovableChildObjects(gameObject,delegate(GameObject child) {  },movableObjects, true);
             foreach (var mov in movableObjects)
             {
@@ -29,7 +27,7 @@ namespace Recursion
             }*/
         }
         
-        public void OnInteractObject(int index) //sphere = 0 cube = 1
+        public void OnInteractObject(int index) //sphere = 0 cube = 1, body = 2 , left controller = 3, right controller = 4 
         {
             _recursionManager.SetTargetObjectInList(movableObjects[index], index);
         }
