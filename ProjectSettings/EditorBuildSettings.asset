@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Paint.unity
     guid: 56a98e131a2603d4b94abce579d289ce
+  - enabled: 1
+    path: Assets/Scenes/Recursion.unity
+    guid: 09e1a547eeb51bc4e9439ef26623a425
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

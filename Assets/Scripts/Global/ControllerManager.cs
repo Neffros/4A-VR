@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -40,6 +41,8 @@ public class ControllerManager : MonoBehaviour
           //  Instantiate(controllerDict.controllerPrefab, transform);
         GameManager.Instance.GameData.controllerManager = this;
     }
+
+    public Animator[] Animators => _animators;
 
     public void TryInitialize(int index)
     {
@@ -134,11 +137,14 @@ public class ControllerManager : MonoBehaviour
             if (_isAnimated[i]) UpdateHandAnimator(i);
         }
 
-        _controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool paused);
+        /*_controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool paused);
         if (paused)
             GameManager.Instance.pauseUIManager.OnPause();    
-        _controllers[1].TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 stickVal);
-        if (stickVal.x > 0.8f)
+        _controllers[0].TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 stickVal);
+        Debug.Log("x" + stickVal.x);
+        Debug.Log("y" + stickVal.y);
+        Debug.Log("paused" + paused);
+        if (stickVal.x > 1f)
         {
             var transform1 = vrCamera.transform;
             var rotation = transform1.rotation;

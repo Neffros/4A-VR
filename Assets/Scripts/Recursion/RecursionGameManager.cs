@@ -12,6 +12,9 @@ namespace Recursion
         private RecursionRoom mainRoom;
         private List<RecursionRoom> _rooms = new List<RecursionRoom>();
         private List<GameObject> movableTargetObjects = new List<GameObject>();
+
+        public Animator[] animators; 
+            
         public RecursionRoom prefab;
         public Material mainFloorMaterial;
 
@@ -64,6 +67,7 @@ namespace Recursion
 
         private void Start()
         {
+            animators = GameManager.Instance.GameData.controllerManager.Animators;
             GameObject parent = this.gameObject;
             int totalOfRooms = biggerComplexity + smallerComplexity + 1;
             for (int i = 0; i < totalOfRooms; i++)
@@ -95,8 +99,8 @@ namespace Recursion
             
             movableTargetObjects = mainRoom.movableObjects;
             SetTargetObjectInList(vrBody, 2);
-            SetTargetObjectInList(leftHand, 3);
-            SetTargetObjectInList(rightHand, 4);
+            SetTargetObjectInList(leftHand, 2);
+            SetTargetObjectInList(rightHand, 3);
         }
     }
 

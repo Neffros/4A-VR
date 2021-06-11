@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.PlayerLoop;
 
 namespace Recursion
@@ -14,17 +15,31 @@ namespace Recursion
         public delegate void ChildHandler(GameObject child);
         
         private RecursionGameManager _recursionManager;
-
+        private Animator[] _animators = new Animator[2];
+        private Animator[] _targetAnimators = new Animator[2];
+        private static readonly int Trigger = Animator.StringToHash("Trigger");
+        private static readonly int Grip = Animator.StringToHash("Grip");
 
         // Start is called before the first frame update
         void Start()
         {
             _recursionManager = RecursionGameManager.Instance;
+            _animators[0] = movableObjects[2].GetComponent<Animator>();
+            _animators[1] = movableObjects[3].GetComponent<Animator>();
+
+            _targetAnimators = _recursionManager.animators;
+            
             /*GetMovableChildObjects(gameObject,delegate(GameObject child) {  },movableObjects, true);
             foreach (var mov in movableObjects)
             {
                 Debug.Log(mov.name);
             }*/
+        }
+
+        private void UpdateHandAnimator(int index)
+        {
+            _animators[index].SetFloat(Trigger, _targetAnimators[index].GetFloat(Trigger));
+            _animators[index].SetFloat(Grip, _targetAnimators[index].GetFloat(Grip));
         }
         
         public void OnInteractObject(int index) //sphere = 0 cube = 1, body = 2 , left controller = 3, right controller = 4 
@@ -44,6 +59,8 @@ namespace Recursion
         private void Update()
         {
             FollowMovableObjects();
+            UpdateHandAnimator(0);
+            UpdateHandAnimator(1);
         }
 
         public void SetFloorMaterial(Material mat)
