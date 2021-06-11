@@ -14,12 +14,17 @@ namespace Recursion
         public List<GameObject> movableObjects = new List<GameObject>();
         public delegate void ChildHandler(GameObject child);
         
+        
         private RecursionGameManager _recursionManager;
+
+        private Quaternion _trackRotation;
+        private Quaternion _finalRot;
         private Animator[] _animators = new Animator[2];
         private Animator[] _targetAnimators = new Animator[2];
+        
         private static readonly int Trigger = Animator.StringToHash("Trigger");
         private static readonly int Grip = Animator.StringToHash("Grip");
-
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -50,8 +55,16 @@ namespace Recursion
         {
             for (int i = 0; i < movableObjects.Count; i++)
             {
+                /*_trackRotation = _recursionManager.MovableTargetObjects[i].transform.localRotation;
+                _finalRot = _trackRotation;
+                if (i == 2)
+                    _finalRot = new Quaternion(_trackRotation.x, _trackRotation.y, _trackRotation.z + 90,
+                        _trackRotation.w);
+                if(i == 3)               _finalRot = new Quaternion(_trackRotation.x, _trackRotation.y, _trackRotation.z - 90,
+                    _trackRotation.w);*/
                 movableObjects[i].transform.localPosition = _recursionManager.MovableTargetObjects[i].transform.localPosition;
                 movableObjects[i].transform.localRotation = _recursionManager.MovableTargetObjects[i].transform.localRotation;
+                //movableObjects[i].transform.localRotation = _finalRot;
             }
         }
         

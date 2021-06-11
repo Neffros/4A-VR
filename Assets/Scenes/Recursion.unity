@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99e946dee0ecbe4b9d89e58b73cbcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animators: []
   prefab: {fileID: 1244772729584585883, guid: 47514069a6b636e429f9989f3785db84, type: 3}
   mainFloorMaterial: {fileID: 2100000, guid: 1da17d3a54461ac4c9afad15402023ac, type: 2}
   vrBody: {fileID: 606164813}
@@ -251,6 +252,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 864586995766463298, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 864586995766463298, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864586995766463298, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1209395307193891807, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -340,6 +356,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309828394683281453, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309828394683281453, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309828394683281453, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309828394683281453, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8309828394683281453, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e47cf9558c18e64ea9e57fbec97dc8f, type: 3}
