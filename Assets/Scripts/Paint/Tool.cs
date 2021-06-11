@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Tool : MonoBehaviour
+namespace ESGI.ProjetAnnuel
 {
-    public abstract void ApplyEffect(ToolTarget target);
+    public abstract class Tool : MonoBehaviour
+    {
+        public abstract void ApplyEffect(ToolTarget target);
+    }
 }
+
 
 

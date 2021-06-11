@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Brush3D : Tool
+namespace ESGI.ProjetAnnuel
 {
-    public override void ApplyEffect(ToolTarget target)
+    public class Brush3D : Tool
     {
-        throw new System.NotImplementedException();
+        public override void ApplyEffect(ToolTarget target)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
