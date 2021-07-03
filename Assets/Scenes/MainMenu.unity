@@ -290,6 +290,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e47cf9558c18e64ea9e57fbec97dc8f, type: 3}
+--- !u!20 &596621090 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8144291112360119896, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 596621089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &599031059
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +518,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1565985309}
+      objectReference: {fileID: 596621090}
     - target: {fileID: 8357499163415017262, guid: 5bfe181086b36ec45b5e97daba0df1da,
         type: 3}
       propertyPath: m_Pivot.x
@@ -827,12 +833,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c1f5602fb25b5549b1f40527976c275, type: 3}
---- !u!20 &1565985309 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8533957921185034470, guid: d94c5ed1edbbff046a7ccfeb281637b8,
-    type: 3}
-  m_PrefabInstance: {fileID: 8533957922068790011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2027535166
 PrefabInstance:
   m_ObjectHideFlags: 0
