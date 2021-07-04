@@ -180,14 +180,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hMap: {fileID: 2800000, guid: 8494b8a34dd35ab48875ff65b1468237, type: 3}
+  updateRealTime: 1
   heightScale: 50
   terrainMat: {fileID: 2100000, guid: 1f5833c4694463948a036ed0c27ae0f4, type: 2}
   gradient:
     serializedVersion: 2
     key0: {r: 0.2956123, g: 0.50002056, b: 0.6886792, a: 1}
     key1: {r: 0.2896938, g: 0.5849056, b: 0.32494295, a: 1}
-    key2: {r: 0.50250775, g: 0.509434, b: 0.49261305, a: 0}
-    key3: {r: 0.30238077, g: 0.28782707, b: 0.28568393, a: 0}
+    key2: {r: 0.3584906, g: 0.27752122, b: 0.2282841, a: 0}
+    key3: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 0}
     key4: {r: 1, g: 1, b: 1, a: 0}
     key5: {r: 1, g: 1, b: 1, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
@@ -195,7 +196,7 @@ MonoBehaviour:
     ctime0: 0
     ctime1: 11497
     ctime2: 24911
-    ctime3: 51547
+    ctime3: 47139
     ctime4: 65535
     ctime5: 65535
     ctime6: 0

@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TerrainGenerator : MonoBehaviour
 {
     public Texture2D hMap;
-    public bool updateRealTime;
+    //public bool updateRealTime;
     public int heightScale = 100;
     public Material terrainMat;
     public Gradient gradient;
@@ -17,14 +19,12 @@ public class TerrainGenerator : MonoBehaviour
 
     private float minTerrainHeight;
     private float maxTerrainHeight;
-    Mesh finalMesh = new Mesh();
+    Mesh mesh = new Mesh();
 
+    //private bool isGenerated;
 
     private void Start()
     {
-        Debug.Log(hMap.GetPixels().Length);
-        Debug.Log("height" + hMap.height);
-        Debug.Log("width" + hMap.width);
 
         Color[] pixels = hMap.GetPixels();
         
@@ -52,9 +52,6 @@ public class TerrainGenerator : MonoBehaviour
                     minTerrainHeight = height;
             }
         }
-        
-        Debug.Log("min is:" + minTerrainHeight);
-        Debug.Log("max is:" + maxTerrainHeight);
         //Vector2[] uv = new Vector2[verts.Count];
         colors = new Color[verts.Count];
         for (int i = 0; i < verts.Count; i++)
@@ -67,24 +64,25 @@ public class TerrainGenerator : MonoBehaviour
         GameObject plane = new GameObject("plane from heightmap");
         plane.AddComponent<MeshFilter>();
         plane.AddComponent<MeshRenderer>();
-        Mesh finalMesh = new Mesh();
-        finalMesh.SetVertices(verts);
-        finalMesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
-        finalMesh.colors = colors;
-        //finalMesh.uv = uv;
-        finalMesh.RecalculateNormals();
-        plane.GetComponent<MeshRenderer>().material = terrainMat;
-        plane.GetComponent<MeshFilter>().mesh = finalMesh;
-
+        mesh = new Mesh();
+        mesh.indexFormat = IndexFormat.UInt32;
+        UpdateMesh();
         
+        plane.GetComponent<MeshRenderer>().material = terrainMat;
+        plane.GetComponent<MeshFilter>().mesh = mesh;
+        plane.AddComponent<TeleportationArea>();
+        //isGenerated = true;
     }
 
     private void UpdateMesh()
     {
-        
+        mesh.Clear();
+        mesh.SetVertices(verts);
+        mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
+        mesh.colors = colors;
+        //finalMesh.uv = uv;
+        mesh.RecalculateNormals();
+
     }
-    private void Update()
-    {
-        if (updateRealTime) UpdateMesh();
-    }
+
 }
