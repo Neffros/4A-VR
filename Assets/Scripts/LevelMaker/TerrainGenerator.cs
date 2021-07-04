@@ -71,6 +71,7 @@ public class TerrainGenerator : MonoBehaviour
         plane.GetComponent<MeshRenderer>().material = terrainMat;
         plane.GetComponent<MeshFilter>().mesh = mesh;
         plane.AddComponent<TeleportationArea>();
+        plane.transform.position = new Vector3(0, -100, 0);
         //isGenerated = true;
     }
 
