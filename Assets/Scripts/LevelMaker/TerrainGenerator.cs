@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -112,9 +113,6 @@ public class TerrainGenerator : MonoBehaviour
     }
     private void GenerateChunk(int startPoint)
     {
-        
-        
-        //entre 384 et 512
         //Color[] pixels = hMap.GetPixels(startPoint, startPoint, chunkSize, chunkSize);
         Debug.Log(startPoint+chunkSize);
         colorText = new Texture2D(chunkSize, chunkSize);
@@ -129,14 +127,14 @@ public class TerrainGenerator : MonoBehaviour
                 verts.Add(currVert);
                 colorText.SetPixel(x, y, Color.red);
                 
-                if (x == 0 || y == 0) continue;
+                if (x == startPoint || y == startPoint) continue;
                 
-                indices.Add(hMap.width * y + x);
-                indices.Add(hMap.width * y + x - 1);
-                indices.Add(hMap.width * (y - 1) + x - 1);
-                indices.Add(hMap.width * (y - 1) + x - 1);
-                indices.Add(hMap.width * (y - 1) + x);
-                indices.Add(hMap.width * y + x);
+                indices.Add(hMap.width * (y - startPoint)+ x - startPoint);
+                indices.Add(hMap.width * (y - startPoint) + x - 1 - startPoint);
+                indices.Add(hMap.width * (y - 1  - startPoint) + x - 1 - startPoint);
+                indices.Add(hMap.width * (y - 1  - startPoint) + x - 1 - startPoint);
+                indices.Add(hMap.width * (y - 1  - startPoint) + x - startPoint);
+                indices.Add(hMap.width * (y - startPoint) + x - startPoint);
 
                 if (height > maxTerrainHeight)
                     maxTerrainHeight = height;
@@ -156,18 +154,28 @@ public class TerrainGenerator : MonoBehaviour
         plane.AddComponent<MeshRenderer>();
         mesh = new Mesh();
         //mesh.indexFormat = IndexFormat.UInt32;
-        UpdateMesh();
+        Debug.Log("verts:" + verts.Count);
+        Debug.Log("indices:" + indices.Count);
+        Debug.Log("max indices:" + indices.Max());
+        mesh.Clear();
+        mesh.SetVertices(verts);
+        mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
+        mesh.colors = colors;
+        //finalMesh.uv = uv;
+        mesh.RecalculateNormals();
         
         plane.GetComponent<MeshRenderer>().material = terrainMat;
         plane.GetComponent<MeshFilter>().mesh = mesh;
         plane.AddComponent<TeleportationArea>();
         plane.transform.position = new Vector3(startPoint, -100, 0);
     }
+    
     private void UpdateMesh()
     {
     
         Debug.Log("verts:" + verts.Count);
         Debug.Log("indices:" + indices.Count);
+        Debug.Log("max indices:" + indices.Max());
         mesh.Clear();
         mesh.SetVertices(verts);
         mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
