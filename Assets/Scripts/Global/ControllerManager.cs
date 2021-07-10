@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,8 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!GameManager.Instance) return;
+
         GameManager.Instance.pauseUIManager.VRCamera = vrCamera;
         TryInitialize(0);
         TryInitialize(1);
@@ -47,7 +50,7 @@ public class ControllerManager : MonoBehaviour
     public void TryInitialize(int index)
     {
 
-
+        if (!GameManager.Instance) return;
         controllerDict = GameManager.Instance.GameData.GetControllerDicts(index);
         if (spawnedControllers[index])
         {
