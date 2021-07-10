@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7406b9ad36dbd694581e94fc2a1b7522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hMap: {fileID: 2800000, guid: a2fb906fafda3a14b97749990d300cd9, type: 3}
+  hMap: {fileID: 2800000, guid: 8494b8a34dd35ab48875ff65b1468237, type: 3}
   ChunkSize: 128
   heightScale: 50
   terrainMat: {fileID: 2100000, guid: 1f5833c4694463948a036ed0c27ae0f4, type: 2}

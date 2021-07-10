@@ -39,7 +39,8 @@ public class TerrainGenerator : MonoBehaviour
     {
         pixels = hMap.GetPixels();
         chunkSize = (int) ChunkSize;
-        GenerateAllChunks();  
+        GenerateAllChunks();
+        //GenerateWholeTerrain();
     }
 
     private void GenerateWholeTerrain()
@@ -104,30 +105,38 @@ public class TerrainGenerator : MonoBehaviour
             
             GenerateChunk(chunkStartPoint);
             chunkStartPoint += chunkSize;
+            verts.Clear();
+            indices.Clear();
         }
         
     }
     private void GenerateChunk(int startPoint)
     {
+        
+        
+        //entre 384 et 512
         //Color[] pixels = hMap.GetPixels(startPoint, startPoint, chunkSize, chunkSize);
         Debug.Log(startPoint+chunkSize);
         colorText = new Texture2D(chunkSize, chunkSize);
-        for (int x = startPoint; x < startPoint-chunkSize; x++)
+        for (int x = startPoint; x < startPoint+chunkSize; x++)
         {
-            for (int y = startPoint; y < startPoint-chunkSize; y++)
+            for (int y = startPoint; y < startPoint+chunkSize; y++)
             {
-                float height = pixels[y * chunkSize + x].grayscale * heightScale;
+               
+
+                float height = pixels[y * hMap.width + x].grayscale * heightScale;
                 Vector3 currVert = new Vector3(x, height, y);
                 verts.Add(currVert);
                 colorText.SetPixel(x, y, Color.red);
+                
                 if (x == 0 || y == 0) continue;
-                    
-                indices.Add(chunkSize * y + x);
-                indices.Add(chunkSize * y + x - 1);
-                indices.Add(chunkSize * (y - 1) + x - 1);
-                indices.Add(chunkSize * (y - 1) + x - 1);
-                indices.Add(chunkSize * (y - 1) + x);
-                indices.Add(chunkSize * y + x);
+                
+                indices.Add(hMap.width * y + x);
+                indices.Add(hMap.width * y + x - 1);
+                indices.Add(hMap.width * (y - 1) + x - 1);
+                indices.Add(hMap.width * (y - 1) + x - 1);
+                indices.Add(hMap.width * (y - 1) + x);
+                indices.Add(hMap.width * y + x);
 
                 if (height > maxTerrainHeight)
                     maxTerrainHeight = height;
@@ -156,6 +165,9 @@ public class TerrainGenerator : MonoBehaviour
     }
     private void UpdateMesh()
     {
+    
+        Debug.Log("verts:" + verts.Count);
+        Debug.Log("indices:" + indices.Count);
         mesh.Clear();
         mesh.SetVertices(verts);
         mesh.SetIndices(indices.ToArray(), MeshTopology.Triangles, 0);
