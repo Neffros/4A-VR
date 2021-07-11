@@ -10,6 +10,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public enum ChunkSize
 {
+    x32=32,
+    x64=64,
     x128=128,
     x256=256,
     x512=512,
@@ -24,26 +26,26 @@ public class TerrainGenerator : MonoBehaviour
     public Material terrainMat;
     public Gradient gradient;
     private Texture2D colorText;
-    private Color[] colors;
-    private List<Vector3> verts = new List<Vector3>();
-    List<int> indices =new List<int>();
     private Color[] pixels;
-
     private float minTerrainHeight;
     private float maxTerrainHeight;
     private int chunkSize;
     private Mesh mesh; //= new Mesh();
 
+    private List<GameObject> chunks;
+
+    public Vector2 centerPosition;
     //private bool isGenerated;
 
     private void Start()
     {
+        chunks = new List<GameObject>();
         pixels = hMap.GetPixels();
         chunkSize = (int) ChunkSize;
         GenerateAllChunks();
         //GenerateWholeTerrain();
     }
-
+    /*
     private void GenerateWholeTerrain()
     { 
         mesh = new Mesh();
@@ -96,45 +98,45 @@ public class TerrainGenerator : MonoBehaviour
         plane.transform.position = new Vector3(0, -100, 0);
         //isGenerated = true;
     }
-
+    */
     private void GenerateAllChunks()
     {
         int chunkAmount = hMap.width / chunkSize;
-        int chunkStartPoint = 0;
+        Debug.Log(chunkAmount);
         for (int i = 0; i < chunkAmount; i++)
         {
-            
-            GenerateChunk(chunkStartPoint);
-            chunkStartPoint += chunkSize;
-            verts.Clear();
-            indices.Clear();
+            for (int j = 0; j < chunkAmount; j++)
+            {
+                GenerateChunk(i*chunkSize, j*chunkSize);
+            }
         }
         
     }
-    private void GenerateChunk(int startPoint)
+    private void GenerateChunk(int startPointX, int startPointY)
     {
+        List<Vector3> verts = new List<Vector3>();
+        List<int> indices = new List<int>();
+        
         //Color[] pixels = hMap.GetPixels(startPoint, startPoint, chunkSize, chunkSize);
-        Debug.Log(startPoint+chunkSize);
+        Debug.Log(startPointX+chunkSize);
         colorText = new Texture2D(chunkSize, chunkSize);
-        for (int x = startPoint; x < startPoint+chunkSize; x++)
+        for (int x = startPointX; x < startPointX+chunkSize; x++)
         {
-            for (int y = startPoint; y < startPoint+chunkSize; y++)
+            for (int y = startPointY; y < startPointY+chunkSize; y++)
             {
-               
-
                 float height = pixels[y * hMap.width + x].grayscale * heightScale;
-                Vector3 currVert = new Vector3(x, height, y);
+                Vector3 currVert = new Vector3(x - startPointX, height, y-startPointY);
                 verts.Add(currVert);
                 colorText.SetPixel(x, y, Color.red);
                 
-                if (x == startPoint || y == startPoint) continue;
+                if (x == startPointX || y == startPointY) continue;
                 
-                indices.Add(hMap.width * (y - startPoint)+ x - startPoint);
-                indices.Add(hMap.width * (y - startPoint) + x - 1 - startPoint);
-                indices.Add(hMap.width * (y - 1  - startPoint) + x - 1 - startPoint);
-                indices.Add(hMap.width * (y - 1  - startPoint) + x - 1 - startPoint);
-                indices.Add(hMap.width * (y - 1  - startPoint) + x - startPoint);
-                indices.Add(hMap.width * (y - startPoint) + x - startPoint);
+                indices.Add(chunkSize * (y - startPointY)+ x - startPointX);
+                indices.Add(chunkSize * (y - startPointY) + x - 1 - startPointX);
+                indices.Add(chunkSize * (y - 1  - startPointY) + x - 1 - startPointX);
+                indices.Add(chunkSize * (y - 1  - startPointY) + x - 1 - startPointX);
+                indices.Add(chunkSize * (y - 1  - startPointY) + x - startPointX);
+                indices.Add(chunkSize * (y - startPointY) + x - startPointX);
 
                 if (height > maxTerrainHeight)
                     maxTerrainHeight = height;
@@ -142,14 +144,15 @@ public class TerrainGenerator : MonoBehaviour
                     minTerrainHeight = height;
             }
         }
-        colors = new Color[verts.Count];
+        Color[] colors = new Color[verts.Count];
         for (int i = 0; i < verts.Count; i++)
         {
             float height = Mathf.InverseLerp(minTerrainHeight, maxTerrainHeight, verts[i].y);
             colors[i] = gradient.Evaluate(height);
         }
 
-        GameObject plane = new GameObject("Chunk " + startPoint/chunkSize);
+        GameObject plane = new GameObject("Chunk " + chunks.Count);
+        chunks.Add(plane);
         plane.AddComponent<MeshFilter>();
         plane.AddComponent<MeshRenderer>();
         mesh = new Mesh();
@@ -167,9 +170,9 @@ public class TerrainGenerator : MonoBehaviour
         plane.GetComponent<MeshRenderer>().material = terrainMat;
         plane.GetComponent<MeshFilter>().mesh = mesh;
         plane.AddComponent<TeleportationArea>();
-        plane.transform.position = new Vector3(startPoint, -100, 0);
+        plane.transform.position = new Vector3(startPointX, -100, startPointY);
     }
-    
+    /*
     private void UpdateMesh()
     {
     
@@ -184,5 +187,5 @@ public class TerrainGenerator : MonoBehaviour
         mesh.RecalculateNormals();
 
     }
-
+    */
 }

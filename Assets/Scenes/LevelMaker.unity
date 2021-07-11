@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hMap: {fileID: 2800000, guid: 8494b8a34dd35ab48875ff65b1468237, type: 3}
-  ChunkSize: 128
+  ChunkSize: 32
   heightScale: 50
   terrainMat: {fileID: 2100000, guid: 1f5833c4694463948a036ed0c27ae0f4, type: 2}
   gradient:
@@ -212,6 +212,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
+  centerPosition: {x: 0, y: 0}
 --- !u!1001 &547235899
 PrefabInstance:
   m_ObjectHideFlags: 0
