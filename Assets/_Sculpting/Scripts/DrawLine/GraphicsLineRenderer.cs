@@ -15,6 +15,7 @@ namespace ESGI.ProjetAnnuel.Sculpting
 
         private Material LineMaterial { get; set; }
         private float LineSize { get; set; }
+        public MeshFilter Filter => GetComponent<MeshFilter>();
 
 
         public void AddPoint(Vector3 point)

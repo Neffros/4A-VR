@@ -166,6 +166,157 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243445085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243445086}
+  - component: {fileID: 243445087}
+  - component: {fileID: 243445088}
+  - component: {fileID: 243445089}
+  m_Layer: 0
+  m_Name: Draw Line
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243445086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243445085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 857067272}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243445087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243445085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c505a18402e59949bc1101ddce4e1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHand: {fileID: 1260459724}
+  rightTrigger: {fileID: 243445088}
+  rightGrip: {fileID: 243445089}
+  material: {fileID: 2100000, guid: 234470fa876c03d459f01f0dfdcc68dd, type: 2}
+  sizeSlider: {fileID: 941500154}
+  toolVisualizer: {fileID: 1118452771}
+  parent: {fileID: 1420890239}
+  filter: {fileID: 2075560453}
+--- !u!114 &243445088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243445085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b920e984366104a9eb473e6c82d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1260459724}
+  buttonType: 0
+  onBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 243445087}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.DrawLineMeshManager,
+          Assembly-CSharp
+        m_MethodName: OnRightTriggerBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHold:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 243445087}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.DrawLineMeshManager,
+          Assembly-CSharp
+        m_MethodName: OnRightTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &243445089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243445085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b920e984366104a9eb473e6c82d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1260459724}
+  buttonType: 1
+  onBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 243445087}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.DrawLineMeshManager,
+          Assembly-CSharp
+        m_MethodName: OnRightGripBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHold:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 243445087}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.DrawLineMeshManager,
+          Assembly-CSharp
+        m_MethodName: OnRightGripEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &389164923
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +531,7 @@ Transform:
   m_Children:
   - {fileID: 389164925}
   - {fileID: 1804772658}
+  - {fileID: 243445086}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -398,6 +550,7 @@ MonoBehaviour:
   tools:
   - {fileID: 389164924}
   - {fileID: 1804772659}
+  - {fileID: 243445087}
 --- !u!1001 &941500151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,6 +892,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MenuCanvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686900184166109924, guid: 32e948bee1028ce46bc452abbb80d9b3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686900184166109924, guid: 32e948bee1028ce46bc452abbb80d9b3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 857067273}
+    - target: {fileID: 3686900184166109924, guid: 32e948bee1028ce46bc452abbb80d9b3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableTool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686900184166109924, guid: 32e948bee1028ce46bc452abbb80d9b3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ESGI.ProjetAnnuel.Sculpting.ToolManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686900184166109924, guid: 32e948bee1028ce46bc452abbb80d9b3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3726584186423108963, guid: 32e948bee1028ce46bc452abbb80d9b3,
         type: 3}
@@ -1343,14 +1521,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &941500154 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7908193046001741933, guid: 32e948bee1028ce46bc452abbb80d9b3,
+  m_CorrespondingSourceObject: {fileID: 5158135334077464079, guid: 32e948bee1028ce46bc452abbb80d9b3,
     type: 3}
   m_PrefabInstance: {fileID: 941500151}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1036508179
@@ -2712,76 +2890,6 @@ MonoBehaviour:
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
---- !u!1001 &1697869860
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1190409829485508, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548671774077554, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_Name
-      value: Debugging Essentials
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548671774077554, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535303257539462, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114478560119012194, guid: 945b593f379c81a499114a9afb22a8e3,
-        type: 3}
-      propertyPath: useCanvas
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 945b593f379c81a499114a9afb22a8e3, type: 3}
 --- !u!1 &1804772657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,6 +2900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804772658}
   - component: {fileID: 1804772659}
+  - component: {fileID: 1804772660}
   m_Layer: 0
   m_Name: Smooth Tool
   m_TagString: Untagged
@@ -2827,14 +2936,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 1260459724}
   rightTrigger: {fileID: 0}
-  rightGrip: {fileID: 0}
+  rightGrip: {fileID: 1804772660}
   smoothAlgorithmValue: {fileID: 2101030794}
   times: {fileID: 839015052}
   iterationCount: {fileID: 1231863863}
   sphere: {fileID: 2075560450}
-  subdivideToggle: {fileID: 941500154}
   hcAlpha: 0.5
   hcBeta: 0.5
+--- !u!114 &1804772660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804772657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b920e984366104a9eb473e6c82d35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1260459724}
+  buttonType: 1
+  onBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1804772659}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.Tool, Assembly-CSharp
+        m_MethodName: OnRightGripBegin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHold:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1804772659}
+        m_TargetAssemblyTypeName: ESGI.ProjetAnnuel.Sculpting.Tool, Assembly-CSharp
+        m_MethodName: OnRightGripEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1870934531
 GameObject:
   m_ObjectHideFlags: 0

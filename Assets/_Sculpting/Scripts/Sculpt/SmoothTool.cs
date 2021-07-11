@@ -16,6 +16,18 @@ namespace ESGI.ProjetAnnuel.Sculpting
 
 		private MeshFilter _filter;
 		
+		public override void OnRightGripBegin()
+		{
+			base.OnRightGripBegin();
+			_filter.transform.parent.SetParent(RightHand.transform, true);
+		}
+
+		public override void OnRightGripEnd()
+		{
+			base.OnRightGripEnd();
+			_filter.transform.parent.SetParent(null, true);
+		}
+		
 		private MeshFilter Filter {
 			get {
 				if(_filter == null) {
