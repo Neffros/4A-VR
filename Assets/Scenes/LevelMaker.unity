@@ -180,9 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1353494706}
-  playerChunkRadius: 50
-  hMap: {fileID: 2800000, guid: 8494b8a34dd35ab48875ff65b1468237, type: 3}
-  ChunkSize: 32
+  playerChunkRadius: 200
+  hMap: {fileID: 2800000, guid: c76301618839fb94f8f9c8526749d23b, type: 3}
+  ChunkSize: 64
   heightScale: 50
   terrainMat: {fileID: 2100000, guid: 1f5833c4694463948a036ed0c27ae0f4, type: 2}
   gradient:
@@ -270,17 +270,17 @@ PrefabInstance:
     - target: {fileID: 2395732386923093340, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.25
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 2395732386923093340, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2395732386923093340, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.81
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 2395732386923093340, guid: 9e47cf9558c18e64ea9e57fbec97dc8f,
         type: 3}
@@ -802,7 +802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449726748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 153.04655, y: -75.042725, z: 31.89598}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1015,6 +1015,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5454921601430184218, guid: 13fae72eb5da7964fb59ae0e2976be2d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5454921601430184221, guid: 13fae72eb5da7964fb59ae0e2976be2d,
         type: 3}

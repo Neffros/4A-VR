@@ -122,7 +122,7 @@ public class TerrainGenerator : MonoBehaviour
         plane.GetComponent<MeshCollider>().convex = true;
         
         plane.AddComponent<TeleportationArea>();
-        plane.transform.position = new Vector3(startPointX, -100, startPointY);
+        plane.transform.position = new Vector3(startPointX, 0, startPointY);
     }
 
     private void Update()
