@@ -20,6 +20,7 @@ public enum ChunkSize
 };
 public class TerrainGenerator : MonoBehaviour
 {
+    public GameObject VRRig;
     public GameObject player;
     public float playerChunkRadius = 50f;
     public Texture2D hMap;
@@ -34,6 +35,7 @@ public class TerrainGenerator : MonoBehaviour
     private float maxTerrainHeight;
     private int chunkSize;
     private Mesh mesh; //= new Mesh();
+    private Vector3 playerSpawnpoint;
 
     private List<GameObject> chunks;
 
@@ -46,7 +48,7 @@ public class TerrainGenerator : MonoBehaviour
         pixels = hMap.GetPixels();
         chunkSize = (int) ChunkSize;
         GenerateAllChunks();
-
+        VRRig.transform.position = playerSpawnpoint;
     }
 
     private void GenerateAllChunks()
@@ -123,6 +125,8 @@ public class TerrainGenerator : MonoBehaviour
         
         plane.AddComponent<TeleportationArea>();
         plane.transform.position = new Vector3(startPointX, 0, startPointY);
+        if(chunks.Count == (hMap.width/chunkSize * hMap.width/chunkSize)/2)
+            playerSpawnpoint = new Vector3(startPointX + chunkSize/2, maxTerrainHeight/2, startPointY + chunkSize/2);
     }
 
     private void Update()
