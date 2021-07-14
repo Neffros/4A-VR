@@ -140,6 +140,9 @@ public class ControllerManager : MonoBehaviour
             if (_isAnimated[i]) UpdateHandAnimator(i);
         }
 
+        _controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool returnToLobby);
+        if(returnToLobby) SceneManager.LoadScene("LevelLobby");
+
         /*_controllers[0].TryGetFeatureValue(CommonUsages.menuButton, out bool paused);
         if (paused)
             GameManager.Instance.pauseUIManager.OnPause();    
